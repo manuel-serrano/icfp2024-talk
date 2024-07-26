@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Fri Jul 26 22:52:58 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 00:45:57 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    I Love CODE                                                      */
@@ -66,6 +66,7 @@ table td {
 
 td.code {
    font-size: 60%;
+   font-weight: bold;
    letter-spacing: 0;
 }
 
