@@ -1,0 +1,85 @@
+/*=====================================================================*/
+/*    serrano/diffusion/talk/hopjs15/extra.hss                         */
+/*    -------------------------------------------------------------    */
+/*    Author      :  Manuel Serrano                                    */
+/*    Creation    :  Thu Oct 22 17:47:15 2015                          */
+/*    Last change :  Thu Oct 22 17:47:53 2015 (serrano)                */
+/*    Copyright   :  2015 Manuel Serrano                               */
+/*    -------------------------------------------------------------    */
+/*    CSS rules for extra xml tags                                     */
+/*=====================================================================*/
+
+/*---------------------------------------------------------------------*/
+/*    The module                                                       */
+/*---------------------------------------------------------------------*/
+${ var config = require( "./config.js" ) }
+${ var theme = require( config.theme ) }
+
+$(define-hss-property (-hop-background-gradient l prio)
+   (match-case l
+      ((?color)
+       (format "background-color: ~a; background-image: inherit;" color))
+      ((?start ?to)
+       (format "background-color: ~a;
+  background: -moz-linear-gradient(-90deg, ~a, ~a);
+  background-image: -o-linear-gradient(-90deg, ~a, ~a);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(~a), to(~a));"
+  start start to start to start to))
+      ((?start ?mid ?to)
+        (format "background-color: ~a;
+  background: -moz-linear-gradient(-90deg, ~a, ~a, ~a);
+  background-image: -o-linear-gradient(-90deg, ~a, ~a, ~a);
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(~a), to(~a));"
+  start start mid to start mid to start to))))
+
+.slide-button {
+  display: inline-block;
+  width: 128px;
+  height: 48px;
+  border-left: 1px solid #555;
+  border-top: 1px solid #555;
+  border-right: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  position: absolute;
+}
+
+.slide-button-inner {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  border-right: 1px solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  -hop-background-gradient: ${theme.greyverylight} ${theme-greylight};
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.slide-button-inner:hover {
+  -hop-background-gradient: ${theme.greylight} ${theme.greylight};
+}
+
+.slide-button-inner div {
+  top: 0;
+}
+
+.slide-button-inner svg {
+  position: relative;
+  top: -58px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.slide-button-inner svg * {
+   fill: ${theme.greydark};
+}
+.slide-button-inner:hover svg * {
+  fill: black;
+}
+

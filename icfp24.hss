@@ -1,0 +1,76 @@
+/*=====================================================================*/
+/*    serrano/diffusion/talk/FOO/icfp24.hss                            */
+/*    -------------------------------------------------------------    */
+/*    Author      :  Manuel Serrano                                    */
+/*    Creation    :  Wed Oct 14 14:41:22 2015                          */
+/*    Last change :  Fri Jul 26 01:55:08 2024 (serrano)                */
+/*    Copyright   :  2015-24 Manuel Serrano                            */
+/*    -------------------------------------------------------------    */
+/*    ECOOP22 presentation CSS                                         */
+/*=====================================================================*/
+
+/*---------------------------------------------------------------------*/
+/*    Imports                                                          */
+/*---------------------------------------------------------------------*/
+@import 'math.hss';
+@import 'fonts.hss?hss';
+@import 'theme.hss?hss';
+@import 'listings.hss?hss';
+
+/*---------------------------------------------------------------------*/
+/*    body                                                             */
+/*---------------------------------------------------------------------*/
+body {
+    background-color: black;
+}
+
+/*---------------------------------------------------------------------*/
+/*    slides                                                           */
+/*---------------------------------------------------------------------*/
+hopimpress-slide {
+  width: var(--slideWidth);  
+  height: var(--slideHeight);  
+  font-family: Kaffeesatz;
+  background-color: var(--background);
+  font-size: var(--fontSize);
+}
+
+/*---------------------------------------------------------------------*/
+/*    important                                                        */
+/*---------------------------------------------------------------------*/
+hopimpress-slide.important {
+  background-color: var(--red);
+  color: var(--greyextralight);
+  font-weight: bold;
+  text-align: right;
+}
+
+.important  {
+    color: var(--red);
+}
+
+.care  {
+    color: var(--citron);
+}
+
+/*---------------------------------------------------------------------*/
+/*    fad                                                              */
+/*---------------------------------------------------------------------*/
+hopimpress-slide.fad {
+    transition: 1s all;
+    opacity: 0;
+}
+
+hopimpress-slide.fad[data-fad="on"] {
+    transition: 1s all;
+    opacity: 1;
+}
+
+/*---------------------------------------------------------------------*/
+/*    misc                                                             */
+/*---------------------------------------------------------------------*/
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}

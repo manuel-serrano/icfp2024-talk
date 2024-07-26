@@ -1,0 +1,87 @@
+%*=====================================================================*/
+%*    serrano/diffusion/talk/ecoop22/tex/layout.tex                    */
+%*    -------------------------------------------------------------    */
+%*    Author      :  Manuel Serrano                                    */
+%*    Creation    :  Thu Jan 27 09:23:04 2022                          */
+%*    Last change :  Thu Jun  2 10:08:10 2022 (serrano)                */
+%*    Copyright   :  2022 Manuel Serrano                               */
+%*    -------------------------------------------------------------    */
+%*    Class implementation                                             */
+%*=====================================================================*/
+
+% compile with
+%   tikz2svg classes-fig.tex > svg/layout.svg
+\definecolor{ORANGE}{HTML}{ff8d00}
+\definecolor{BLUE}{HTML}{369abe}
+\definecolor{GREEN}{HTML}{d0ed5c}
+\definecolor{RED}{HTML}{f53736}
+\definecolor{GRAY}{HTML}{444444}
+\definecolor{BG}{HTML}{FFFFFF}
+\definecolor{PURPLE}{HTML}{C170C6}
+\definecolor{VIOLET}{HTML}{6555C5}
+
+\begin{tikzpicture}[draw,
+  minimum width=1cm,
+  minimum height=0.5cm,
+  scale=1,
+  text=GRAY,
+  Cinst/.style={rectangle,text=white,draw=ORANGE,fill=ORANGE,align=center,text width=3.8cm, scale=0.75},
+  Cfun/.style={rectangle,text=white,draw=VIOLET,fill=VIOLET,align=center, text width=3.8cm, scale=0.75},
+  Cclazz/.style={rectangle,text=black,draw=GREEN,align=center, fill=GREEN,text width=3.8cm, scale=0.75},
+  Cfieldr/.style={rectangle,fill=BG,draw=VIOLET,text width=3.8cm,scale=0.75},
+  Cfieldg/.style={rectangle,fill=BG,draw=GREEN,text width=3.8cm,scale=0.75},
+  Cfieldo/.style={rectangle,fill=BG,draw=ORANGE,text width=3.8cm,scale=0.75},
+  Ccode/.style={rectangle,fill=BG,draw=VIOLET,text width=3.8cm,scale=0.75,text=blue}
+  ]
+    \matrix (SC) [matrix of nodes, nodes in empty cells] at (0.5,0)
+    {
+      \node[Cfun]{\textsf{\textbf{\small Function}}}; \\
+      \node (SCp) [Cfieldr]{\texttt{\_\_proto\_\_:}}; \\
+      \node[Cfieldr]{\texttt{name:\,\color{red}"Sub"}}; \\
+      \node (SCpo) [Cfieldr, align= flush left]{\texttt{prototype:}}; \\
+      \node [Ccode]{\texttt{return \_super!==...}}; \\
+    };
+  
+    \matrix (BC) [matrix of nodes, nodes in empty cells] at (5,0)
+    {
+      \node[Cfun]{\textsf{\textbf{\small Function}}}; \\
+      \node (BCp) [Cfieldr]{\texttt{\_\_proto\_\_:}}; \\
+      \node[Cfieldr]{\texttt{name:\,\color{red}"Base"}}; \\
+      \node (BCpo) [Cfieldr]{\texttt{prototype:}}; \\
+      \node [Ccode]{\texttt{this.msg="hello...}}; \\
+    };
+  
+    \matrix (O) [matrix of nodes, nodes in empty cells] at (0,-2.5)
+    {
+      \node[Cinst]{\textsf{\textbf{\small Object}}}; \\
+      \node (Op) [Cfieldo]{\texttt{\_\_proto\_\_:}}; \\
+      \node[Cfieldo]{\texttt{msg:\,\color{red}"hello world"}}; \\
+    };
+
+    \matrix (S) [matrix of nodes, nodes in empty cells] at (4.5,-2.0)
+    {
+      \node (Sc) [Cclazz]{\textsf{\textbf{\small Object}}}; \\
+      \node (Sp) [Cfieldg]{\texttt{\_\_proto\_\_:}}; \\
+      \node[Cfieldg]{\texttt{subMet:\,...}}; \\
+     };
+     
+    \matrix (B) [matrix of nodes, nodes in empty cells] at (9,-2.0)
+    {
+      \node (Bc) [Cclazz]{\textsf{\textbf{\small Object}}}; \\
+      \node (Bp) [Cfieldg]{\texttt{\_\_proto\_\_:}}; \\
+      \node[Cfieldg]{\texttt{baseMet:\,...}}; \\
+     };
+     
+     \draw[-{Latex[open]}] (SCpo.east) + (-5mm,0mm).. controls ++(-1mm:20mm) and ++(-2mm:-4mm) .. (Sc.west);
+     \draw[-{Latex[open]}] (Op.east) + (-5mm,0mm) .. controls ++(-1mm:20mm) and ++(-2mm:-4mm) .. (Sc.west);
+     \draw[-{Latex[open]}] (Sp.east) + (-5mm,0mm) .. controls ++(-1mm:20mm) and ++(-2mm:-4mm) .. (Bc.west);
+     \draw[-{Latex[open]}] (BCpo.east) + (-5mm,0mm) .. controls ++(-1mm:20mm) and ++(-2mm:-4mm) .. (Bc.west);
+     \draw[-{Latex[open]}, densely dashed] (Bp.east) + (-5mm,0mm) -- ++(0.5cm,0);
+     \draw[-{Latex[open]}, densely dashed] (SCp.east) + (-5mm,0mm) -- ++(0.2cm,0.0cm) -- ++(0.5cm,0.5cm);
+     \draw[-{Latex[open]}, densely dashed] (BCp.east) + (-5mm,0mm) -- ++(0.2cm,0.0cm) -- ++(0.5cm,0.5cm);
+\end{tikzpicture}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "jsrecords"
+%%% End:
