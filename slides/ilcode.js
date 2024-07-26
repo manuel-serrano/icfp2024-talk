@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/ilcode.js                      */
+/*    serrano/diffusion/talk/icfp24/slides/ilcode.js                   */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Jul 25 23:11:28 2024 (serrano)                */
+/*    Last change :  Fri Jul 26 22:52:58 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    I Love CODE                                                      */
@@ -22,7 +22,7 @@ export { ilcode };
 /*---------------------------------------------------------------------*/
 /*    ilcode ...                                                       */
 /*---------------------------------------------------------------------*/
-const ilcode = <impress.slide title="I Love FP">
+const ilcode = <impress.slide title="I Love Code">
    <table>
      <tr><td>I</td><td class="love"><img src=${require.resolve("../svg/heart.svg")}/></td></tr>
    <tr><td class="code" colspan=2><div>CODE</div></td></tr>

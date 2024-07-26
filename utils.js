@@ -1,54 +1,130 @@
+// -*- Mode: typescript; typescript-indent-level: 3; indent-tabs-mode: nil -*-
 /*=====================================================================*/
-/*    serrano/diffusion/talk/ecoop22/utils.js                          */
+/*    serrano/diffusion/article/hiphop-sudoku-pearl/utils.mjs          */
 /*    -------------------------------------------------------------    */
-/*    Author      :  Manuel Serrano                                    */
-/*    Creation    :  Thu May 26 16:19:55 2022                          */
-/*    Last change :  Tue May 31 08:15:07 2022 (serrano)                */
-/*    Copyright   :  2022 Manuel Serrano                               */
+/*    Author      :  Manuel Serrano & Robby Findler                    */
+/*    Creation    :  Sat Dec 23 07:22:03 2023                          */
+/*    Last change :  Fri May 31 10:21:09 2024 (serrano)                */
+/*    Copyright   :  2023-24 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
-/*    Utilities                                                        */
+/*    Utilities for building and displaying SUDOKU boards.             */
 /*=====================================================================*/
+import "./set.mjs";
 
 /*---------------------------------------------------------------------*/
-/*    Module ...                                                       */
+/*    SIZE ...                                                         */
 /*---------------------------------------------------------------------*/
-import * as fs from "fs";
-import * as path from "path";
-import { system, systemSync } from "hop:system";
+export const BOARD_SIZE = 9;
+export
+const iota = Array.from({length: BOARD_SIZE}, (_, i) => i);
+export
+const digits = new Set(iota.map(v => v + 1));
 
-export { gnuplot, tikz, fpx };
+export let margins = [];
 
 /*---------------------------------------------------------------------*/
-/*    gnuplot ...                                                      */
+/*    initMargins ...                                                  */
 /*---------------------------------------------------------------------*/
-function gnuplot(file) {
-   const svg = file.replace(/[.]plot$/,".svg");
-   const dir = path.dirname(file);
-   
-   if (!fs.existsSync(svg) || fs.statSync(file).ctime > fs.statSync(svg).ctime) {
-      console.log("Generating", svg, `[(cd ${dir}; gnuplot ${file} > ${svg})]`);
-      systemSync(`sh -c "(cd ${dir}; gnuplot ${file} > ${svg})"`);
+export function initMargins() {
+   margins = new Array(iota.length * iota.length);
+   for (let i = 0; i < iota.length * iota.length; i++) {
+      margins[i]= new Array(i).fill(".").join("");
    }
-      
-   return svg;
 }
-   
+
 /*---------------------------------------------------------------------*/
-/*    tikz ...                                                         */
+/*    initGameSafe ...                                                 */
 /*---------------------------------------------------------------------*/
-function tikz(file) {
-   const svg = file.replace(/[.]tex$/,".svg");
-   if (!fs.existsSync(svg) || fs.statSync(file).ctime > fs.statSync(svg).ctime) {
-      console.log("Generating", svg, `[tikz2svg ${file} ${svg}]`);
-      systemSync(`tikz2svg ${file} ${svg}`);
+export function initGameSafe(board) {
+   const rows = board.split("\n")
+      .filter(l => !l.match(/^[ \t]*$/))
+      .map(s => s.trim());
+
+   if (BOARD_SIZE !== rows[0].length) {
+      throw `wrong board size ${rows[0].length} vs ${BOARD_SIZE}`;
    }
-      
-   return svg;
+
+   margins = new Array(iota.length * iota.length);
+   for (let i = 0; i < iota.length * iota.length; i++) {
+      margins[i]= new Array(i).fill(".").join("");
+   }
+
+   if (!rows.every(r => r.length === BOARD_SIZE)) {
+      throw `Wrong board: ${board}`;
+   } else {
+      const givens = {};
+      iota.forEach(i => iota.forEach(j => {
+         if (rows[j][i] !== ".") {
+            givens[`must${i}${j}`] = new Set([parseInt(rows[j][i])]);
+         }
+      }))
+      return givens;
+   }
 }
+
+/*---------------------------------------------------------------------*/
+/*    parseBoard ...                                                   */
+/*---------------------------------------------------------------------*/
+export
+const parseBoard = (board) => {
+   const rows = board.split("\n")
+      .filter(l => !l.match(/^[ \t]*$/))
+      .map(s => s.trim());
+   const givens = {};
+   iota.forEach(i => iota.forEach(j => {
+      if (rows[j][i] !== ".") {
+         givens[`must${i}${j}`] =
+            new Set([parseInt(rows[j][i])]);
+      }}));
+   return givens;
+}
+
+/*---------------------------------------------------------------------*/
+/*    displayBoard ...                                                 */
+/*---------------------------------------------------------------------*/
+export function displayBoard(signals) {
+  // something is wierd about the way `i` and `j` are swapped here
+  const board = iota.map(j => iota.map(i => cell_number(signals,i,j) || "."));
+  board.forEach((row, j) => console.log("|" + row.join("") + "|"));
+}
+
+function cell_number(signals,i,j) {
+  let s = signals[`must${i}${j}`]
+  if (!s || s.size == 0)
+    return false;
+  return s.first();
+}
+
+/*---------------------------------------------------------------------*/
+/*    checkSolution ...                                                */
+/*---------------------------------------------------------------------*/
+export function checkSolution(signals) {
+   const tab = Math.sqrt(BOARD_SIZE);
+
+   function checkBlock(cells) {
+      const set = new Set(iota.map(v => v + 1));
+      cells.forEach(v => set.delete(v));
+      return set.size === 0;
+   }
    
-/*---------------------------------------------------------------------*/
-/*    fpx ...                                                          */
-/*---------------------------------------------------------------------*/
-function fpx(fsz) { 
-   return Math.round(fsz * 1.8) + "px";
+   const board = iota.map(i => iota.map(j => -1));
+   iota.forEach(i => iota.forEach(j => board[j][i] = cell_number(signals,i,j)));
+
+   if (iota.every(i => checkBlock(iota.map(j => board[i][j])))) {
+      if (iota.every(j => checkBlock(iota.map(i => board[i][j])))) {
+	 return iota.every(i => {
+	    const x0 = i * tab % iota.length;
+	    const y0 = Math.floor(i * tab / iota.length) * tab;
+	    return checkBlock(iota.map(j => {
+	       const x = (j % tab);
+	       const y = Math.floor(j * tab / iota.length);
+	       return board[x + x0][y + y0];
+	    }));
+	 });
+      } else {
+	 return false;
+      }
+   } else {
+      return false;
+   }
 }

@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/whyfp.js                       */
+/*    serrano/diffusion/talk/icfp24/slides/whyfp.js                    */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Jul 25 21:40:59 2024 (serrano)                */
+/*    Last change :  Fri Jul 26 22:53:41 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Why do we love FP?                                               */
@@ -32,7 +32,7 @@ const whyfp = <impress.slide title="Why FP?" onstep=~{whyfponstep(event)}>
 	    let i = 0;
 	    setInterval(() => {
 	       if (i < 400) {
-		  el.innerHTML += " <span>code</span>";
+		  el.innerHTML += ' <div class="code">code</div>';
 		  i++;
 	       }
 	    }, 10);
@@ -65,6 +65,16 @@ whyfp.css = <style>
    color: var(--red);
 }
 
+.code {
+   display: inline;
+   color: white;
+   background: var(--greyverylight);
+   border-radius: 16px;
+   padding-left: 16px;
+   padding-right: 16px;
+   margin-right: 2px;
+}
+		  
 #whyfpbg {
    position: absolute;
    top: 0;
@@ -74,8 +84,8 @@ whyfp.css = <style>
    z-index: -1;
    width: 100%;
    height: 100%;
-   color: var(--greyverylight);
    font-size: 40%;
+   line-height: 140%;
 }
 </style>;
 

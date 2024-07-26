@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/solve.js                       */
+/*    serrano/diffusion/talk/icfp24/slides/solve.js                    */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Fri Jul 26 01:59:26 2024 (serrano)                */
+/*    Last change :  Fri Jul 26 02:10:36 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku                                                           */
@@ -22,7 +22,7 @@ export { solve };
 /*---------------------------------------------------------------------*/
 /*    solve ...                                                        */
 /*---------------------------------------------------------------------*/
-const solve = <impress.slide class="fad" title="Not Only Functions" data-duration=1000 onslideenter=~{const x = this; setTimeout(() => x.setAttribute("data-fad", "on"), 10)} onslideleave=~{this.setAttribute("data-fad", "off")}>
+const solve = <impress.slide class="fad" title="Solving Sudokus" data-duration=1000 onslideenter=~{const x = this; setTimeout(() => x.setAttribute("data-fad", "on"), 10)} onslideleave=~{this.setAttribute("data-fad", "off")}>
    <div>
      <div> solving sudokus </div>
      <div> a problem </div>

@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/icfp24.js                             */
+/*    serrano/diffusion/talk/icfp24/icfp24.js                          */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Fri Jul 26 01:24:42 2024 (serrano)                */
+/*    Last change :  Fri Jul 26 02:05:50 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -119,6 +119,12 @@ function slides(width, height) {
       <impress.row class="row-stack" data-x=${width + 128} data-y=0>
 	${sudoku}
 	${solve}
+	${hard}
+	${bank}
+	${strategies}
+	${api}
+	${understand2}
+	${hiphop}
       </impress.row>
       
       <impress.row class="row-stack" data-x=0 data-y=0>
@@ -136,27 +142,13 @@ import { nof } from "./slides/nof.js";
 import { ilcode } from "./slides/ilcode.js";
 import { sudoku } from "./slides/sudoku.js";
 import { solve } from "./slides/solve.js";
+import { hard } from "./slides/hard.js";
+import { bank } from "./slides/bank.js";
+import { strategies } from "./slides/strategies.js";
+import { api } from "./slides/api.js";
+import { understand2 } from "./slides/understand2.js";
+import { hiphop } from "./slides/hiphop.js";
 
-import { layout } from "./slides/layout.js";
-import { proto } from "./slides/proto.js";
-import { ic } from "./slides/ic.js";
-import { poly } from "./slides/poly.js";
-import { classProp } from "./slides/classprop.js";
-//import { classPred } from "./slides/classpred.js";
-import { cliff } from "./slides/cliff.js";
-import { ctor, ctorarg } from "./slides/ctor.js";
-import { objectives } from "./slides/objectives.js";
-import { sealed } from "./slides/sealed.js";
-import { obj } from "./slides/obj.js";
-import { ox } from "./slides/ox.js";
-import { oxaxs } from "./slides/oxaxs.js";
-import { sealedProp } from "./slides/sealedprop.js";
-import { om } from "./slides/om.js";
-import { sealedMet } from "./slides/sealedmet.js";
-import { news } from "./slides/news.js";
-import { newscomp } from "./slides/newscomp.js";
-import { bench } from "./slides/bench.js";
-import { benchchart } from "./slides/benchchart.js";
 import { conclusion } from "./slides/conclusion.js";
    
 console.log(`"http://localhost:${hop.port}/hop/icfp24" ready...`);
