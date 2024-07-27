@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 19:11:39 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 21:20:00 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -103,11 +103,13 @@ service icfp24slides(o) {
 
      <script type="module">
         import { ReactiveMachine } from "@hop/hiphop";
-        import { mach as mach1, mach3, mach4, mach5 } from "src/traffic.mjs";
+        import { mach as mach1, mach3, mach4, mach5, mach6, mach7 } from "src/traffic.mjs";
         window.mach = window.mach1 = mach1;
         window.mach3 = mach3;
         window.mach4 = mach4;
         window.mach5 = mach5;
+        window.mach6 = mach6;
+        window.mach7 = mach7;
         mach.reactO = function(...nodes) {
 	   const con = document.getElementById(this.consoleId);
 	   const tl = document.getElementById(this.trafficId);
@@ -117,9 +119,24 @@ service icfp24slides(o) {
 	   this.react(...nodes);
 	   con.innerHTML = `reaction ${this.age()}`;
 	};
+        mach.react7 = function(...nodes) {
+	   const con = document.getElementById(this.consoleId);
+	   const tlns = document.getElementById(this.trafficId + "-ns");
+	   const tlew = document.getElementById(this.trafficId + "-ew");
+	   tlns.removeAttribute("data-red");
+	   tlns.removeAttribute("data-orange");
+	   tlns.removeAttribute("data-green");
+	   tlew.removeAttribute("data-red");
+	   tlew.removeAttribute("data-orange");
+	   tlew.removeAttribute("data-green");
+	   this.react(...nodes);
+	   con.innerHTML = `reaction ${this.age()}`;
+	};
         mach3.reactO = mach.reactO;
         mach4.reactO = mach.reactO;
         mach5.reactO = mach.reactO;
+        mach6.reactO = mach.reactO;
+        mach7.react7 = mach.react7;
      </script>
    
      ${slides(width, height)}
@@ -183,6 +200,9 @@ function slides(width, height) {
       <impress.row class="row-stack" data-x=${2 * (width + 128)} data-y=0>
        	${hiphop}
        	${tl}
+       	${staging}
+       	${tlst}
+       	${tlst2}
       </impress.row>
       
       <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
@@ -214,6 +234,9 @@ import { funimp } from "./slides/funimp.js";
 // chapter 3
 import { hiphop } from "./slides/hiphop.js";
 import { tl } from "./slides/tl.js";
+import { staging } from "./slides/staging.js";
+import { tlst } from "./slides/tlst.js";
+import { tlst2 } from "./slides/tlst2.js";
 
 // conclusion
 import { conclusion } from "./slides/conclusion.js";

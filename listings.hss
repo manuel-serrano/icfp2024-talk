@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Tue May 24 09:02:20 2022                          */
-/*    Last change :  Sat Jul 27 20:43:39 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 21:14:50 2024 (serrano)                */
 /*    Copyright   :  2022-24 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listing configuration                                            */
@@ -70,7 +70,7 @@ pre.hiphop .fontifier-prog-reserved.sustain,
 pre.hiphop .fontifier-prog-reserved.fork,
 pre.hiphop .fontifier-prog-reserved.par,
 pre.hiphop .fontifier-prog-reserved.suspend,
-pre.hiphop .fontifier-prog-reserved.signal,
+pre.hiphop .fontifier-prog-client.signal,
 pre.hiphop .fontifier-prog-reserved.break {
     color: var(--greendark);
     font-weight: bold;

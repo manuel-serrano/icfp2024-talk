@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 21:10:23 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 21:12:28 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -95,7 +95,6 @@ tl.css = <style>
 
 .control-button button {
    border-radius: 8px;
-   margin-left: 2em;
    margin-right: 0.5em;
    font-size: 50%;
  }
@@ -111,7 +110,7 @@ tl.css = <style>
 
 .control-tl {
    position: absolute;
-   right: 1em;
+   right: 0.5em;
    top: 0.2ex;
 }
 
@@ -120,6 +119,7 @@ tl.css = <style>
    left: 0.2em;
    right: 0.4em;
    top: 2ex;
+   transition: 1s all;
 }
 
 .codes {
@@ -128,15 +128,6 @@ tl.css = <style>
    left: 0;
    right: 0;
    bottom: 0;
-}
-
-.code .code {
-   position: absolute;
-   top: 0;
-   left: 0;
-   right: 0;
-   bottom: 0;
-   transition: 1s all;
 }
 
 .code pre {

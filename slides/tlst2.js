@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/icfp24/slides/tlst.js                     */
+/*    serrano/diffusion/talk/icfp24/slides/tlst2.js                    */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 23:48:07 2024 (serrano)                */
+/*    Last change :  Sun Jul 28 00:07:54 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -16,7 +16,7 @@
 import * as impress from "hopimpress-0.6.*.hz";
 import { LSTINPUTLISTING } from "../listings.js";
 
-export { tlst };
+export { tlst2 };
 
 /*---------------------------------------------------------------------*/
 /*    TLIGHT ...                                                       */
@@ -32,31 +32,27 @@ function TLIGHT(attrs, ...nodes) {
 }
 
 /*---------------------------------------------------------------------*/
-/*    tlst ...                                                         */
+/*    tlst2 ...                                                        */
 /*---------------------------------------------------------------------*/
-const tlst = <impress.slide title="Traffic Light">
+const tlst2 = <impress.slide title="Traffic Light 2">
    <div class="control">
       <div class="control-button">
          <button onclick=~{
 	    switch (hopimpressCurrent().firstChild.getAttribute("data-step")) {
-	       case "0": 
-	       case "1": mach = mach6; break;
+	       case "0": mach = mach7; break;
 	    }
-            mach.trafficId = "tl6"; mach.consoleId = "co6"; mach.reactO();}>
+            mach.trafficId = "tl7"; mach.consoleId = "co7"; mach.react7();}>
          run
       </button>
       </div>
-      <div class="control-console" id="co6">&nbsp;</div>
-      <div class="control-tl"><tlight id="tl6"/></div>
+      <div class="control-console" id="co7">&nbsp;</div>
+      <div class="control-tl"><tlight id="tl7-ns"/><tlight id="tl7-ew"/></div>
    </div>
    <div class="scroll">
      <div class="codes traffic-with-staging">
        <div class="code" step="0-1">
-         <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="93-105"/>
+         <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="119-135"/>
        </div>
-       <div class="code" step="1">
-         <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="107-114"/>
-     </div>
    </div>
    </div>
 </impress.slide>;
@@ -64,7 +60,7 @@ const tlst = <impress.slide title="Traffic Light">
 /*---------------------------------------------------------------------*/
 /*    css ...                                                          */
 /*---------------------------------------------------------------------*/
-tlst.css = <style>
+tlst2.css = <style>
 .control {
    position: absolute;
    left: 0.2em;
@@ -97,7 +93,7 @@ tlst.css = <style>
 .control-tl {
    position: absolute;
    right: 0.5em;
-   top: 0.2ex;
+   top: 0;
 }
 
 .code {
@@ -139,6 +135,8 @@ tlst.css = <style>
 }
 
 table.trafficlight {
+   display: inline-table;
+   margin-left: 0.5em;
    background-color: black;
    border-radius: 0.5ex;
    padding-left: 0.2em;
@@ -147,6 +145,8 @@ table.trafficlight {
    border-spacing: 0.1em;
    font-size: 120%;
    line-height: 40%;
+   vertical-align: middle;
+   margin-bottom: 0.2ex;
 }
 
 td.light {

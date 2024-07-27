@@ -89,3 +89,58 @@ const Traffic5 = hiphop module() {
 export const mach5 = new hh.ReactiveMachine(Traffic5);
 mach5.addEventListener("light", lightHandler);
 
+// phase
+const phase = (color, light, count) => hiphop {
+   signal s = false combine (x,y) => x || y;
+   done: {
+      fork {
+         suspend (s.nowval) {
+            sustain ${light}(new Set([color]));}
+      } par {
+         ${Array.from({length: count}, _ => hiphop yield)}
+         emit s(true);
+         break done;
+      }
+   }
+}
+
+const Traffic6 = hiphop module () {
+   inout light = new Set() combine (x,y) => x.union(y);
+   loop {
+      ${phase("red", "light", 2)}
+      ${phase("green", "light", 1)}
+      ${phase("orange", "light", 1)}
+   }
+}
+
+export const mach6 = new hh.ReactiveMachine(Traffic6);
+mach6.addEventListener("light", lightHandler);
+
+const Traffic7 = hiphop module() {
+   inout ns = new Set() combine (x,y) => x.union(y);
+   inout ew = new Set() combine (x,y) => x.union(y);
+   fork {
+      loop {
+         ${phase("green", "ns", 3)}
+         ${phase("orange", "ns", 1)}
+         ${phase("red", "ns", 4)}
+      }
+   } par {
+      loop {
+         ${phase("red", "ew", 4)}
+         ${phase("green", "ew", 3)}
+         ${phase("orange", "ew", 1)}
+      }
+   }
+}
+
+function lightHandler2(light) {
+   const name = light.signame;
+   const el = document.getElementById(this.trafficId + "-" + name);
+   light.nowval.forEach(l => el.setAttribute("data-" + l, l));
+}
+
+export const mach7 = new hh.ReactiveMachine(Traffic7);
+mach7.addEventListener("ns", lightHandler2);
+mach7.addEventListener("ew", lightHandler2);
+
