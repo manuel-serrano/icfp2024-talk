@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Tue May 24 09:02:20 2022                          */
-/*    Last change :  Sat Jul 27 18:05:30 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 20:43:39 2024 (serrano)                */
 /*    Copyright   :  2022-24 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listing configuration                                            */
@@ -60,18 +60,28 @@ pre.hiphop .fontifier-prog-reserved.hiphop {
     padding-right: 0.1em;
 }
 
-pre.hiphop .fontifier-prog-reserved.module {
-    color: var(--green);
-    font-weight: bold;
-}
-
+pre.hiphop .fontifier-prog-reserved.module,
 pre.hiphop .fontifier-prog-reserved.loop,
 pre.hiphop .fontifier-prog-reserved.emit,
 pre.hiphop .fontifier-prog-reserved.yield,
 pre.hiphop .fontifier-prog-reserved.combine,
 pre.hiphop .fontifier-prog-reserved.inout,
 pre.hiphop .fontifier-prog-reserved.sustain,
-pre.hiphop .fontifier-prog-reserved.const {
+pre.hiphop .fontifier-prog-reserved.fork,
+pre.hiphop .fontifier-prog-reserved.par,
+pre.hiphop .fontifier-prog-reserved.suspend,
+pre.hiphop .fontifier-prog-reserved.signal,
+pre.hiphop .fontifier-prog-reserved.break {
+    color: var(--greendark);
+    font-weight: bold;
+}
+
+pre.hiphop .fontifier-prog-reserved.const,
+pre.hiphop .fontifier-prog-reserved.new {
     color: var(--purple);
     font-weight: bold;
+}
+
+pre.hiphop .fontifier-prog-string {
+    color: var(--red);
 }

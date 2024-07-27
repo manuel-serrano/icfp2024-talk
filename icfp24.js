@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 18:27:57 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 19:11:39 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -103,15 +103,23 @@ service icfp24slides(o) {
 
      <script type="module">
         import { ReactiveMachine } from "@hop/hiphop";
-        import { mach } from "src/traffic.mjs";
-        window.mach = mach;
+        import { mach as mach1, mach3, mach4, mach5 } from "src/traffic.mjs";
+        window.mach = window.mach1 = mach1;
+        window.mach3 = mach3;
+        window.mach4 = mach4;
+        window.mach5 = mach5;
         mach.reactO = function(...nodes) {
 	   const con = document.getElementById(this.consoleId);
 	   const tl = document.getElementById(this.trafficId);
-	   tl.removeAttribute("data-light");
+	   tl.removeAttribute("data-red");
+	   tl.removeAttribute("data-orange");
+	   tl.removeAttribute("data-green");
 	   this.react(...nodes);
 	   con.innerHTML = `reaction ${this.age()}`;
 	};
+        mach3.reactO = mach.reactO;
+        mach4.reactO = mach.reactO;
+        mach5.reactO = mach.reactO;
      </script>
    
      ${slides(width, height)}
