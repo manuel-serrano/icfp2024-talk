@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 17:57:13 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 18:20:50 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -42,8 +42,16 @@ const tl = <impress.slide title="Traffic Light">
       <div class="control-console" id="co1">&nbsp;</div>
       <div class="control-tl"><tlight id="tl1"/></div>
    </div>
-   <div class="code">
-      <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="7-20"/>
+   <div class="codes">
+     <div class="code" step="0">
+       <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="7-20"/>
+     </div>
+     <div class="code" step="1">
+       <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="7-13"/>
+     </div>
+     <div class="code" step="2">
+       <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="22-26"/>
+     </div>
    </div>
 </impress.slide>;
 
@@ -92,6 +100,23 @@ tl.css = <style>
    left: 0.2em;
    right: 0.4em;
    top: 3ex;
+}
+
+.codes {
+   position: relative;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+}
+
+.code .code {
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   transition: 1s all;
 }
 
 .code pre {

@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Tue May 24 09:02:20 2022                          */
-/*    Last change :  Sat Jul 27 17:56:21 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 18:05:30 2024 (serrano)                */
 /*    Copyright   :  2022-24 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listing configuration                                            */
@@ -58,4 +58,20 @@ pre.hiphop .fontifier-prog-reserved.hiphop {
     border-radius: 4px;
     padding-left: 0.1em;
     padding-right: 0.1em;
+}
+
+pre.hiphop .fontifier-prog-reserved.module {
+    color: var(--green);
+    font-weight: bold;
+}
+
+pre.hiphop .fontifier-prog-reserved.loop,
+pre.hiphop .fontifier-prog-reserved.emit,
+pre.hiphop .fontifier-prog-reserved.yield,
+pre.hiphop .fontifier-prog-reserved.combine,
+pre.hiphop .fontifier-prog-reserved.inout,
+pre.hiphop .fontifier-prog-reserved.sustain,
+pre.hiphop .fontifier-prog-reserved.const {
+    color: var(--purple);
+    font-weight: bold;
 }

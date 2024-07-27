@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 17:52:47 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 18:27:57 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -106,8 +106,10 @@ service icfp24slides(o) {
         import { mach } from "src/traffic.mjs";
         window.mach = mach;
         mach.reactO = function(...nodes) {
-	   this.react(...nodes);
 	   const con = document.getElementById(this.consoleId);
+	   const tl = document.getElementById(this.trafficId);
+	   tl.removeAttribute("data-light");
+	   this.react(...nodes);
 	   con.innerHTML = `reaction ${this.age()}`;
 	};
      </script>
