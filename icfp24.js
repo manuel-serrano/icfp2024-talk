@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 15:55:00 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 15:56:28 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -127,19 +127,27 @@ function slides(width, height) {
 	${funimp}
       </impress.row>
       
-      <impress.row class="row-stack" data-x=${2 * width + 128} data-y=0>
+      <impress.row class="row-stack" data-x=${2 * (width + 128)} data-y=0>
        	${hiphop}
+      </impress.row>
+      
+      <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
+       	${conclusion}
+       	${calibration}
       </impress.row>
       
    </impress.impress>
 }
 
+// chapter 1
 import { title } from "./slides/title.js";
 import { ilfp } from "./slides/ilfp.js";
 import { whyfp } from "./slides/whyfp.js";
 import { understand } from "./slides/understand.js";
 import { nof } from "./slides/nof.js";
 import { ilcode } from "./slides/ilcode.js";
+
+// chapter 2
 import { sudoku } from "./slides/sudoku.js";
 import { solve } from "./slides/solve.js";
 import { hard } from "./slides/hard.js";
@@ -147,8 +155,13 @@ import { bank } from "./slides/bank.js";
 import { strategies } from "./slides/strategies.js";
 import { api } from "./slides/api.js";
 import { understand2 } from "./slides/understand2.js";
+import { funimp } from "./slides/funimp.js";
+
+// chapter 3
 import { hiphop } from "./slides/hiphop.js";
 
+// conclusion
 import { conclusion } from "./slides/conclusion.js";
+import { calibration } from "./slides/calibration.js";
    
 console.log(`"http://localhost:${hop.port}/hop/icfp24" ready...`);

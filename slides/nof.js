@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/nof.js                         */
+/*    serrano/diffusion/talk/icfp24/slides/nof.js                      */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Jul 25 21:12:43 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 15:58:50 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Why do we love FP?                                               */
@@ -22,7 +22,7 @@ export { nof };
 /*---------------------------------------------------------------------*/
 /*    nof ...                                                          */
 /*---------------------------------------------------------------------*/
-const nof = <impress.slide title="Not Only Functions">
+const nof = <impress.slide title="Not Only Functions" onslideenter=~{impress.step()}>
    <div>
      <div step="1"> not </div>
      <div step="1"> only </div>

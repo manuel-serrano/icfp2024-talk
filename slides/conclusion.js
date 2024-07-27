@@ -4,7 +4,7 @@
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
 /*    Last change :  Thu Jun  2 14:28:34 2022 (serrano)                */
-/*    Copyright   :  2015-22 Manuel Serrano                            */
+/*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sealed Classes objectives                                        */
 /*=====================================================================*/
