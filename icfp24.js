@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Fri Jul 26 02:05:50 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 15:55:00 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -124,11 +124,11 @@ function slides(width, height) {
 	${strategies}
 	${api}
 	${understand2}
-	${hiphop}
+	${funimp}
       </impress.row>
       
-      <impress.row class="row-stack" data-x=0 data-y=0>
-       	${conclusion}
+      <impress.row class="row-stack" data-x=${2 * width + 128} data-y=0>
+       	${hiphop}
       </impress.row>
       
    </impress.impress>
