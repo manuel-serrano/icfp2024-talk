@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 18:39:42 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 21:10:23 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -97,7 +97,7 @@ tl.css = <style>
    border-radius: 8px;
    margin-left: 2em;
    margin-right: 0.5em;
-   font-size: 60%;
+   font-size: 50%;
  }
 
 .control-console {
