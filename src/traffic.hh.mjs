@@ -13,9 +13,9 @@ const Traffic = hiphop module() {
 }
 
 export const mach = new hh.ReactiveMachine(Traffic);
+
 mach.addEventListener("light", function(light) {
    const el = document.getElementById(mach.trafficId);
-   console.log("EL=", el, light.nowval.value());
    el.setAttribute("data-light", light.nowval.value());
 });
 

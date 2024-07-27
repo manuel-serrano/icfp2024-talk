@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 17:50:43 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 17:57:13 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -43,7 +43,7 @@ const tl = <impress.slide title="Traffic Light">
       <div class="control-tl"><tlight id="tl1"/></div>
    </div>
    <div class="code">
-      <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="1-17"/>
+      <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="7-20"/>
    </div>
 </impress.slide>;
 
@@ -90,12 +90,15 @@ tl.css = <style>
 .code {
    position: absolute;
    left: 0.2em;
+   right: 0.4em;
    top: 3ex;
 }
 
 .code pre {
    padding: 0;
    width: 100%;
+   padding: 0.2em;
+   margin-right: 0.2em;
 }
 
 table.trafficlight {

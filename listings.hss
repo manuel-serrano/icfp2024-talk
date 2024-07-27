@@ -1,10 +1,10 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/ecoop22/listings.hss                      */
+/*    serrano/diffusion/talk/icfp24/listings.hss                       */
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Tue May 24 09:02:20 2022                          */
-/*    Last change :  Thu Jun  2 11:38:36 2022 (serrano)                */
-/*    Copyright   :  2022 manuel serrano                               */
+/*    Last change :  Sat Jul 27 17:56:21 2024 (serrano)                */
+/*    Copyright   :  2022-24 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listing configuration                                            */
 /*=====================================================================*/
@@ -31,12 +31,12 @@
     border-left: 8px solid;
 }
 
-.hopscript {
-    border-left-color: var(--hopscript-color);
-}
-
 .javascript {
     border-left-color: var(--javascript-color);
+}
+
+.hiphop {
+    border-left-color: var(--hiphop-color);
 }
 
 /*---------------------------------------------------------------------*/
@@ -46,4 +46,16 @@
 .hopscript .fontifier-prog .class,
 .javascript .class {
     color: var(--purple);
+}
+
+/*---------------------------------------------------------------------*/
+/*    HipHop fontification                                             */
+/*---------------------------------------------------------------------*/
+pre.hiphop .fontifier-prog-reserved.hiphop {
+    background-color: var(--greydark);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    padding-left: 0.1em;
+    padding-right: 0.1em;
 }

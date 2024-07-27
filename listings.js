@@ -1,5 +1,5 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/listings.js                           */
+/*    serrano/diffusion/talk/icfp24/listings.js                        */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Sat Nov 14 08:32:31 2015                          */

@@ -1,10 +1,10 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/ecoop22/theme.hss                         */
+/*    serrano/diffusion/talk/icfp24/theme.hss                          */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Mon May 23 10:35:36 2022                          */
-/*    Last change :  Fri May 27 08:33:32 2022 (serrano)                */
-/*    Copyright   :  2022 Manuel Serrano                               */
+/*    Last change :  Sat Jul 27 17:56:31 2024 (serrano)                */
+/*    Copyright   :  2022-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ECOOP22 theme                                                    */
 /*=====================================================================*/
@@ -31,6 +31,6 @@
     --purple: #8329D9;
     --blueviolet: #6555C5;
     --inria: #df3628;
-    --hopscript-color: #ff8d00;
+    --hiphop-color: #ff8d00;
     --javascript-color: #ff3506;
 }
