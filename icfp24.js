@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 15:56:28 2024 (serrano)                */
+/*    Last change :  Sat Jul 27 16:26:17 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -13,11 +13,19 @@
 /*---------------------------------------------------------------------*/
 /*    imports                                                          */
 /*---------------------------------------------------------------------*/
-import { name, slideWidth, slideHeight, impress as impressv } from "./config.js";
+import { name, slideWidth, slideHeight } from "./config.js";
 
 import * as fontifier from "@hop/fontifier";
 import * as path from "path";
 import * as impress from "hopimpress-0.6.*.hz";
+
+/*---------------------------------------------------------------------*/
+/*    R ... hop resolver                                               */
+/*---------------------------------------------------------------------*/
+//const R = new hop.Resolver(import.meta.url);
+const R = {
+   resolve: file => require.resolve(file)
+};
 
 /*---------------------------------------------------------------------*/
 /*    icfp24 ...                                                       */
@@ -36,6 +44,21 @@ service icfp24(o) {
 	   idiom="scheme"
 	   jscript=${[impress.jscript]}/>
 
+     <script type="importmap"> {
+        "imports": {
+           "@hop/hop": "${R.resolve('@hop/hop/client.mjs')}",
+           "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
+           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}"
+        }
+     }
+     </script>
+
+     <script type="module">
+        import { ReactiveMachine } from "@hop/hiphop";
+        import { mach } from "src/traffic.mjs";
+        window.mach = mach;
+     </script>
+   
      <impress.cover title=${name} src=${icfp24slides}>
        <ol>
 	 ${ impress.slideNodes(s)
@@ -69,6 +92,21 @@ service icfp24slides(o) {
 
      <impress.panel id="panel" controls=${false}/>
      
+     <script type="importmap"> {
+        "imports": {
+           "@hop/hop": "${R.resolve('@hop/hop/client.mjs')}",
+           "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
+           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}"
+        }
+     }
+     </script>
+
+     <script type="module">
+        import { ReactiveMachine } from "@hop/hiphop";
+        import { mach } from "src/traffic.mjs";
+        window.mach = mach;
+     </script>
+   
      ${slides(width, height)}
      
    </html>
@@ -129,6 +167,7 @@ function slides(width, height) {
       
       <impress.row class="row-stack" data-x=${2 * (width + 128)} data-y=0>
        	${hiphop}
+       	${tl}
       </impress.row>
       
       <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
@@ -159,6 +198,7 @@ import { funimp } from "./slides/funimp.js";
 
 // chapter 3
 import { hiphop } from "./slides/hiphop.js";
+import { tl } from "./slides/tl.js";
 
 // conclusion
 import { conclusion } from "./slides/conclusion.js";

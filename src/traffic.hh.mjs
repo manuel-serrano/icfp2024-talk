@@ -3,6 +3,22 @@ import * as hh from "@hop/hiphop";
 import * as ut from "./unit_test_lib.mjs";
 import "./set.mjs";
 
+// slide stuff
+const Traffic = hiphop module() {
+   inout light = new Set() combine (x,y) => x.union(y);
+   loop {
+      emit light(new Set(["red"]));
+      yield;
+   }
+}
+
+export const mach = new hh.ReactiveMachine(Traffic);
+mach.addEventListener("light", function(light) {
+   const el = document.getElementById(mach.trafficId);
+   console.log("EL=", el, light.nowval.value());
+   el.setAttribute("data-light", light.nowval.value());
+});
+
 // step 1: basic esterel stuff
 export
 const TL1 = hiphop module() {
