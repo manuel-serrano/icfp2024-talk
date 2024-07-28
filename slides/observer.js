@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/icfp24/slides/tlst2.js                    */
+/*    serrano/diffusion/talk/icfp24/slides/observer.js                 */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sun Jul 28 13:33:45 2024 (serrano)                */
+/*    Last change :  Sun Jul 28 00:49:13 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -16,7 +16,7 @@
 import * as impress from "hopimpress-0.6.*.hz";
 import { LSTINPUTLISTING } from "../listings.js";
 
-export { tlst2 };
+export { observer };
 
 /*---------------------------------------------------------------------*/
 /*    TLIGHT ...                                                       */
@@ -32,9 +32,9 @@ function TLIGHT(attrs, ...nodes) {
 }
 
 /*---------------------------------------------------------------------*/
-/*    tlst2 ...                                                        */
+/*    observer ...                                                     */
 /*---------------------------------------------------------------------*/
-const tlst2 = <impress.slide title="Traffic Light 2">
+const observer = <impress.slide title="Traffic Light 2">
    <div class="control">
       <div class="control-button">
          <button onclick=~{
@@ -50,17 +50,17 @@ const tlst2 = <impress.slide title="Traffic Light 2">
    </div>
    <div class="scroll">
      <div class="codes traffic-with-staging">
-       <div class="code" step="0">
-         <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="119-135"/>
+       <div class="code" step="0-1">
+         <lstinputlisting language="hiphop" src="src/traffic.hh.mjs" linerange="148-177"/>
        </div>
-     </div>
+   </div>
    </div>
 </impress.slide>;
 
 /*---------------------------------------------------------------------*/
 /*    css ...                                                          */
 /*---------------------------------------------------------------------*/
-tlst2.css = <style>
+observer.css = <style>
 .control {
    position: absolute;
    left: 0.2em;
@@ -120,6 +120,10 @@ tlst2.css = <style>
    height: 80%;
 }
 		 
+[data-step="1"] .traffic-with-staging {
+   top: -10ex;      
+}
+
 .code pre {
    padding: 0;
    width: 100%;

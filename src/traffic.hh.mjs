@@ -144,3 +144,33 @@ export const mach7 = new hh.ReactiveMachine(Traffic7);
 mach7.addEventListener("ns", lightHandler2);
 mach7.addEventListener("ew", lightHandler2);
 
+// observer
+const Traffic8 = hiphop module() {
+   inout ns = new Set() combine (x,y) => x.union(y);
+   inout ew = new Set() combine (x,y) => x.union(y);
+   inout failed = false combine (x,y) => x || y;
+   Lfailed: {
+      fork {
+         loop {
+            ${phase("green", "ns", 3)}
+            ${phase("orange", "ns", 1)}
+            ${phase("red", "ns", 3)}
+         }
+      } par {
+         loop {
+            ${phase("red", "ew", 4)}
+            ${phase("green", "ew", 3)}
+            ${phase("orange", "ew", 1)}
+         }
+      } par {
+         loop {
+            if (!(ns.nowval.has("red") || ew.nowval.has("red"))) {
+               break Lfailed;
+            }
+            yield;
+         }
+      }
+   }
+   sustain failed(true);
+}
+

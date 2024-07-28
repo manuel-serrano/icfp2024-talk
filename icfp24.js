@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sat Jul 27 21:20:00 2024 (serrano)                */
+/*    Last change :  Sun Jul 28 00:33:35 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -203,6 +203,9 @@ function slides(width, height) {
        	${staging}
        	${tlst}
        	${tlst2}
+       	${observer}
+       	${lunch}
+       	${paradox}
       </impress.row>
       
       <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
@@ -237,6 +240,9 @@ import { tl } from "./slides/tl.js";
 import { staging } from "./slides/staging.js";
 import { tlst } from "./slides/tlst.js";
 import { tlst2 } from "./slides/tlst2.js";
+import { observer } from "./slides/observer.js";
+import { lunch } from "./slides/lunch.js";
+import { paradox } from "./slides/paradox.js";
 
 // conclusion
 import { conclusion } from "./slides/conclusion.js";
