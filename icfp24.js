@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sun Jul 28 00:33:35 2024 (serrano)                */
+/*    Last change :  Sun Jul 28 15:32:40 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -210,6 +210,7 @@ function slides(width, height) {
       
       <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
        	${conclusion}
+       	${ilfi}
        	${calibration}
       </impress.row>
       
@@ -246,6 +247,7 @@ import { paradox } from "./slides/paradox.js";
 
 // conclusion
 import { conclusion } from "./slides/conclusion.js";
+import { ilfi } from "./slides/ilfi.js";
 import { calibration } from "./slides/calibration.js";
    
 console.log(`"http://localhost:${hop.port}/hop/icfp24" ready...`);

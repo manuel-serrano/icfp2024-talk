@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sun Jul 28 14:17:28 2024 (serrano)                */
+/*    Last change :  Sun Jul 28 15:30:43 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Paradox                                                          */
@@ -22,7 +22,7 @@ export { paradox };
 /*    paradox ...                                                      */
 /*---------------------------------------------------------------------*/
 const paradox = <impress.slide title="Paradox">
-   <div class="title"> The logic hits back</div>
+   <div class="title"> Logic hits back</div>
    
    <div class="scroll">
      <div class="codes paradox">

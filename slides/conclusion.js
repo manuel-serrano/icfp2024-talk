@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/ecoop22/slides/conclusion.js              */
+/*    serrano/diffusion/talk/icfp24/slides/conclusion.js               */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Jun  2 14:28:34 2022 (serrano)                */
+/*    Last change :  Sun Jul 28 15:54:04 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sealed Classes objectives                                        */
@@ -26,27 +26,24 @@ const conclusion = <impress.slide title="conclusion">
        <td class="title">
 	 <div>
 	   <div class="title-block-top">
-	     <div>JavaScript</div>
-	     <div class="jsclass">
-	       <div><span>Sealed</span></div>
- 	     </div>
-	     <div>Classes</div>
+	     <div>The Functional</div>
+	     <div>The Imperative</div>
+	     <div>and the <span class="sudoku">Sudoku</span></div>
 	   </div>
  	 </div>
-	 <div class="aot">
+	 <div class="hiphop">
 	   <div>
-	     AoT
+	     HipHop
  	   </div>
 	 </div>
        </td>
        <td class="author" step="1">
-	 in conclusion...
+	 in conclusion ...
  	 <div class="ulcontainer" step="1">
-	   <ul>
-	     <li>average speedup of <span class="faster">19%</span></li>
-	     <li>no code size increases</li>
-	     <li>~2,000 LOC</li>
-	     <li>compatible with classes</li>
+           <ul>
+              <li>Read the paper for the Sudoku</li>
+              <li>https://github.com/manuel-serrano/icfp2024-sudoku</li>
+              <li>https://github.com/manuel-serrano/icfp2024-talk</li>
  	   </ul>
  	 </div>
        </td>
@@ -85,7 +82,7 @@ table td.title {
    margin-left: auto;
    margin-right: auto;
    text-align: center;
-   width: 50%;
+   width: 40%;
    position: relative;
 }
       
@@ -93,11 +90,11 @@ table td.author {
    margin-left: auto;
    margin-right: auto;
    text-align: left;
-   width: 50%;
+   width: 60%;
    position: relative;
    margin-right: 0;
-   padding-top: 5.2ex;
-   font-size: 90%;
+   padding-top: 15.2ex;
+   font-size: 50%;
    font-weight: bold;
 }
       
@@ -107,7 +104,8 @@ td.author .ulcontainer {
 }
 
 td.author ul {
-   font-size: 80%;
+   font-size: 90%;
+   font-weight: normal;
    margin-left: 1em;
    list-style: none;
 }
@@ -128,7 +126,7 @@ td.author li:before {
 .title-block-top {
    width: 100%;
    margin-top: 1ex;
-   font-size: 120%;
+   font-size: 80%;
    margin-left: auto;
    margin-right: auto;
    text-align: center;
@@ -153,13 +151,13 @@ td.author li:before {
    color: var(--grey);
 }
 
-.jsclass {
+.sudoku {
   position: relative;
   height: 2.5ex;
   width: 100%;
 }
 
-.jsclass > div {
+.sudoku > div {
   top: 0;
   left: 0;
   right: 0;
@@ -173,28 +171,24 @@ td.author li:before {
    color: var(--red);
 }
 
-.jsclass div:nth-child(1) {
+.sudoku {
    color: var(--red);
 }
 
-.jsclass div:nth-child(3) {
-   color: var(--greydark);
-}
-
-div.aot {
+div.hiphop {
    position: absolute;
-   bottom: 2ex;
+   bottom: 0ex;
    width: 100%;
-   font-size: 90%;
+   font-size: 70%;
    margin-left: auto;
    margin-right: auto;
    text-align: center;
 }
 
-div.aot div {
+div.hiphop div {
    font-weight: bold;
    display: inline-block;
-   width: 2em;
+   width: 3em;
    border-radius: 8px;
    background-color: var(--greydark);
    color: white;
