@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sun Jul 28 14:05:44 2024 (serrano)                */
+/*    Last change :  Thu Aug  1 10:10:23 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    No such thing as a free lunch                                    */
@@ -28,7 +28,7 @@ const lunch = <impress.slide title="Free Lunch">
        <path id="curve" d="M6,150C49.63,93,105.79,36.65,156.2,47.55,207.89,58.74,213,131.91,264,150c40.67,14.43,108.57-6.91,229-145" />
        <text x="25">
          <textPath xlink:href="#curve">
-            no such thing as a free <tspan>lunch</tspan>!
+            no <tspan id="lunch-such" step="1">such</tspan> <tspan id="lunch-thing" step="1">thing</tspan> as a <tspan id="lunch-free" step="1">free</tspan> <tspan id="lunch-lunch" step="1">lunch</tspan>!
          </textPath>
        </text>
      </svg>
@@ -71,10 +71,25 @@ text {
 
 tspan {
    fill: var(--background);
+}
+
+tspan#lunch-lunch {
+   transition: 3s;
+}
+
+tspan#lunch-such {
+   transition: 2.5s;
+}
+
+tspan#lunch-free {
    transition: 1s;
 }
 
-[data-step="1"] tspan {
+tspan#lunch-thing {
+   transition: 1.5s;
+}
+
+[data-step="1"] tspan#lunch-lunch {
    fill: var(--red);
 }
 </style>;

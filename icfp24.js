@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Sun Jul 28 15:32:40 2024 (serrano)                */
+/*    Last change :  Thu Aug  1 17:29:03 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -87,8 +87,7 @@ service icfp24slides(o) {
 	      icfp24.resource("icfp24.hss")]}
 	   idiom="scheme"
 	   include="hop-canvas"
-	   script=${[impress.jscript,
-		     icfp24.resource("lib/scm/impress.scm")]}/>
+	   script=${[impress.jscript]}/>
 
      <impress.panel id="panel" controls=${false}/>
      

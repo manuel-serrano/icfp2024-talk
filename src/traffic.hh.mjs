@@ -15,7 +15,7 @@ export const mach = new hh.ReactiveMachine(Traffic1);
 
 mach.addEventListener("light", function(light) {
    const el = document.getElementById(this.trafficId);
-   light.nowval.forEach(l => el.setAttribute("data-" + l, "on"));
+   light.nowval.forEach(l => el.setAttribute("data-" + l, l));
 });
 
 const Traffic2 = hiphop module() {
