@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Fri Jul 26 02:10:36 2024 (serrano)                */
+/*    Last change :  Tue Aug 27 09:17:22 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku                                                           */
@@ -24,7 +24,7 @@ export { solve };
 /*---------------------------------------------------------------------*/
 const solve = <impress.slide class="fad" title="Solving Sudokus" data-duration=1000 onslideenter=~{const x = this; setTimeout(() => x.setAttribute("data-fad", "on"), 10)} onslideleave=~{this.setAttribute("data-fad", "off")}>
    <div>
-     <div> solving sudokus </div>
+     <div> solving sudokus... </div>
      <div> a problem </div>
      <div class="functions"> already solved<span>!</span> </div>
    </div>
@@ -56,9 +56,9 @@ solve.css = <style>
 }
 
 .body div div:nth-child(2) {
-   font-size: 160%;
+   font-size: 170%;
    color: var(--greyverylight);
-   line-height: 110%;
+   line-height: 120%;
    transition-delay: 0.6s;
    letter-spacing: 4px;
 }
@@ -66,7 +66,7 @@ solve.css = <style>
 .body div div:nth-child(3) {
    font-size: 180%;
    color: white;
-   line-height: 140%;
+   line-height: 130%;
    transition-delay: 1.1s;
    letter-spacing: 8px;
 }		

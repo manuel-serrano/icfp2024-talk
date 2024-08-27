@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 00:29:16 2024 (serrano)                */
+/*    Last change :  Tue Aug 27 09:24:39 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Why do we love FP?                                               */
@@ -45,7 +45,7 @@ understand2.css = <style>
 
 .care {
    font-size: 120%;
-   margin-right: 1em;
+   margin-right: 1.5em;
 }
 		  
 </style>;

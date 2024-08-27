@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/understand.js                  */
+/*    serrano/diffusion/talk/icfp24/slides/understand.js               */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Fri Jul 26 01:18:54 2024 (serrano)                */
+/*    Last change :  Tue Aug 27 09:15:46 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Why do we love FP?                                               */
@@ -47,7 +47,7 @@ understand.css = <style>
 
 .care {
    font-size: 120%;
-   margin-right: 1em;
+   margin-right: 1.5em;
 }
 		  
 </style>;
