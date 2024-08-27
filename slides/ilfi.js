@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sun Jul 28 15:32:32 2024 (serrano)                */
+/*    Last change :  Tue Aug 27 09:48:27 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    I Love FP                                                        */
@@ -22,7 +22,7 @@ export { ilfi };
 /*---------------------------------------------------------------------*/
 /*    ilfi ...                                                         */
 /*---------------------------------------------------------------------*/
-const ilfi = <impress.slide title="I Love Function + Imperative">
+const ilfi = <impress.slide title="I Love Functional + Imperative">
    <table>
      <tr><td>I</td><td class="love"><img src=${require.resolve("../svg/heart.svg")}/></td></tr>
      <tr><td>F</td><td>I</td></tr>
