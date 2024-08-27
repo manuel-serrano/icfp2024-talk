@@ -1,7 +1,9 @@
 ICFP 24 talk
 ============
 
-To run the slides:
+These are the slides used for the ICFP'244 Milan talk. They introduce
+the HipHop programming language that is illustrated mostly using a
+traffic light example.
 
 ```
 npm run build
