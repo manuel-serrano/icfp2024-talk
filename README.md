@@ -6,8 +6,15 @@ the HipHop programming language that is illustrated mostly using a
 traffic light example.
 
 ```
+npm install
 npm run build
 npm run slides
+```
+
+For giving the talk
+
+```
+npm run talk
 ```
 
 Requirements

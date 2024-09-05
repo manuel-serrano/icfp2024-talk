@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 21:12:28 2024 (serrano)                */
+/*    Last change :  Thu Sep  5 07:55:17 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Traffic Light                                                    */
@@ -47,7 +47,7 @@ const tl = <impress.slide title="Traffic Light">
 	       case "5": mach = mach5; break;
 	    }
             mach.trafficId = "tl1"; mach.consoleId = "co1"; mach.reactO();}>
-         run
+         react
       </button>
       </div>
       <div class="control-console" id="co1">&nbsp;</div>

@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Thu Aug  1 17:29:03 2024 (serrano)                */
+/*    Last change :  Thu Aug 29 18:40:43 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -182,7 +182,7 @@ function slides(width, height) {
         ${whyfp}
         ${understand}
         ${nof}
-        ${ilcode}
+        <!-- ${ilcode} -->
       </impress.row>
      
       <impress.row class="row-stack" data-x=${width + 128} data-y=0>
@@ -192,7 +192,7 @@ function slides(width, height) {
 	${bank}
 	${strategies}
 	${api}
-	${understand2}
+	<!-- ${understand2} -->
 	${funimp}
       </impress.row>
       

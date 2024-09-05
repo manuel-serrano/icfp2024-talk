@@ -1,9 +1,9 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/slides/title.js                       */
+/*    serrano/diffusion/talk/icfp24/slides/title.js                    */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Jul 25 18:16:55 2024 (serrano)                */
+/*    Last change :  Fri Aug 30 13:55:29 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Talk title                                                       */
@@ -24,9 +24,9 @@ export { title };
 /*---------------------------------------------------------------------*/
 const title = <impress.slide title="title">
    <div class="title-block-title">
-      <div>The Functional</div>
-      <div>The Imperative</div>
-      <div>... and the <span class="sudoku">Sudoku</span></div>
+   <div>The Functional</div>
+      <div>the Imperative</div>
+      <div>and the <span class="sudoku">Sudoku</span></div>
    </div>
    
    <div class="title-block-authors">

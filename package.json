@@ -12,7 +12,8 @@
   },
   "scripts": {
     "build": "node_modules/@hop/hiphop/bin/hhc.mjs src/traffic.hh.mjs -o src/traffic.mjs ",
-    "slides": "hop -p 8888 --so-policy ifexists icfp24.js",
-    "debug": "hop -g -p 8888 --so-policy ifexists icfp24.js"
+    "slides": "hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.js",
+    "talk": "xset s off -dpms && hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.js",
+    "debug": "hop --no-zeroconf -g -p 8888 --so-policy ifexists icfp24.js"
     }
 }

@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sat Jul 27 16:13:03 2024 (serrano)                */
+/*    Last change :  Thu Sep  5 07:36:34 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Pliss23 title                                                    */
@@ -25,7 +25,7 @@ export const calibration = <impress.slide title="calibration">
 calibration.css = <style>
 .body {
    background-color: #eee;
-   border: 4px solid black;
+   border: 4px solid var(--red);
    positon: absolute;
 }
 
