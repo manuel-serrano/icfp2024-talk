@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 10:48:47 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 17:54:30 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
@@ -42,11 +42,11 @@ const driver = <impress.slide title="Driver">
 /*---------------------------------------------------------------------*/
 driver.css = <style>
 [data-step="1"] .driver {
-   top: -4ex;      
+   top: -3ex;      
 }
 
 [data-step="2"] .driver {
-   top: -8ex;      
+   top: -5ex;      
 }
 
 [data-step="0"] .driver .stall,

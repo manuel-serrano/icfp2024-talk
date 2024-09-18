@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 09:29:11 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 17:52:35 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Paradox                                                          */
@@ -44,11 +44,11 @@ const paradox = <impress.slide title="Paradox">
 /*---------------------------------------------------------------------*/
 paradox.css = <style>
 [data-step="1"] .paradox {
-   top: -4ex;      
+   top: -2ex;      
 }
 
 [data-step="2"] .paradox {
-   top: -14ex;      
+   top: -10ex;      
 }
 
 .title {

@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 10:14:07 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 17:52:59 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
@@ -53,7 +53,7 @@ machine.css = <style>
 }
 
 [data-step="2"] .machine {
-   top: -7ex;      
+   top: -4ex;      
 }
 
 .title {

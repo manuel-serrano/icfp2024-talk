@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 10:18:14 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 17:53:25 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
@@ -46,11 +46,11 @@ const cell = <impress.slide title="Cell">
 /*---------------------------------------------------------------------*/
 cell.css = <style>
 [data-step="1"] .cell {
-   top: -4ex;      
+   top: -2ex;      
 }
 
 [data-step="2"] .cell {
-   top: -17ex;      
+   top: -13ex;      
 }
 
 .title {
