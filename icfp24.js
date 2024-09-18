@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Thu Aug 29 18:40:43 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 09:39:17 2024 (serrano)                */
 /*    Copyright   :  2016-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -18,6 +18,11 @@ import { name, slideWidth, slideHeight } from "./config.js";
 import * as fontifier from "@hop/fontifier";
 import * as path from "path";
 import * as impress from "hopimpress-0.6.*.hz";
+
+/*---------------------------------------------------------------------*/
+/*    longVersion                                                      */
+/*---------------------------------------------------------------------*/
+let longVersion = true;
 
 /*---------------------------------------------------------------------*/
 /*    R ... hop resolver                                               */
@@ -36,6 +41,8 @@ service icfp24(o) {
       hop.broadcast("hopimpress", { goto: id });
    };
 
+   if (o && o.longVersion === "false") longVersion = false;
+   
    return <impress.html logo=${require.resolve("./etc/logo.png")}>
 
      <head css=${impress.cssCover}
@@ -206,8 +213,18 @@ function slides(width, height) {
        	${lunch}
        	${paradox}
       </impress.row>
-      
-      <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
+
+      ${ longVersion 
+	 ? <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
+              ${implementation}
+              ${machine}
+              ${cell}
+              ${strategy}
+              ${driver}
+           </impress.row>
+         : "" }
+   
+      <impress.row class="row-stack" data-x=${(longVersion ? 4 : 3) * (width + 128)} data-y=0>
        	${conclusion}
        	${ilfi}
        	${calibration}
@@ -244,9 +261,16 @@ import { observer } from "./slides/observer.js";
 import { lunch } from "./slides/lunch.js";
 import { paradox } from "./slides/paradox.js";
 
+// chapter4
+import { implementation } from "./slides/implementation.js";
+import { machine } from "./slides/machine.js";
+import { cell } from "./slides/cell.js";
+import { strategy } from "./slides/strategy.js";
+import { driver } from "./slides/driver.js";
+
 // conclusion
 import { conclusion } from "./slides/conclusion.js";
 import { ilfi } from "./slides/ilfi.js";
 import { calibration } from "./slides/calibration.js";
    
-console.log(`"http://localhost:${hop.port}/hop/icfp24" ready...`);
+console.log(`"http://localhost:${hop.port}/hop/icfp24?longVersion=true" ready...`);

@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Sat Nov 14 08:32:31 2015                          */
-/*    Last change :  Tue Jul 23 22:43:06 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 10:39:48 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listings                                                         */
@@ -39,6 +39,7 @@ function LSTINPUTLISTING(attrs, ...nodes) {
 
    const ip = #:open-input-file(#:js-tostring(path, #:%this));
    const clazz = attrs.class ? attrs.class + " listings" : (attrs.language ? attrs.language + " listings" : "listings");
+   const id = attrs.id || "";
 
    if (!ip) {
       throw new Error('Cannot find file "' + path + '"');
@@ -46,9 +47,9 @@ function LSTINPUTLISTING(attrs, ...nodes) {
 
    try {
       if (!attrs.linerange) {
-      	 return <PRE class=${clazz} step=${attrs.step}><CODE class="fontifier-prog">${lang(ip, undefined, undefined)}</CODE>${nodes}</PRE>;
+      	 return <PRE id=${id} class=${clazz} step=${attrs.step}><CODE class="fontifier-prog">${lang(ip, undefined, undefined)}</CODE>${nodes}</PRE>;
       } else {
- 	 return <PRE class=${clazz} step=${attrs.step}><CODE class="fontifier-prog">${range(attrs.linerange).map(({beg, end}) => lang(ip, beg, end))}</CODE>${nodes}</PRE>;
+ 	 return <PRE id=${id} class=${clazz} step=${attrs.step}><CODE class="fontifier-prog">${range(attrs.linerange).map(({beg, end}) => lang(ip, beg, end))}</CODE>${nodes}</PRE>;
       }
    } finally {
       #:close-input-port(ip);

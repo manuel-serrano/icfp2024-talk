@@ -1,12 +1,12 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/icfp24/slides/paradox.js                  */
+/*    serrano/diffusion/talk/icfp24/slides/driver.js                   */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 09:29:11 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 10:48:47 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
-/*    Paradox                                                          */
+/*    HipHop                                                           */
 /*=====================================================================*/
 "use hopscript";
 
@@ -16,24 +16,22 @@
 import * as impress from "hopimpress-0.6.*.hz";
 import { LSTINPUTLISTING } from "../listings.js";
 
-export { paradox };
+export { driver };
 
 /*---------------------------------------------------------------------*/
-/*    paradox ...                                                      */
+/*    driver ...                                                       */
 /*---------------------------------------------------------------------*/
-const paradox = <impress.slide title="Paradox">
-   <div class="title"> Logic hits back</div>
+const driver = <impress.slide title="Driver">
+   <div class="title">The driver</div>
    
    <div class="scroll">
-     <div class="codes paradox">
+     <div class="codes driver">
        <div class="code" step="0-2">
-         <lstinputlisting language="hiphop" src="src/paradox.hh.mjs" linerange="1-9"/>
-       </div>
-       <div class="code" step="1-2">
-         <lstinputlisting language="hiphop" src="src/paradox.hh.mjs" linerange="11-17"/>
-       </div>
-       <div class="code" step="2">
-         <lstinputlisting language="hiphop" src="src/paradox.hh.mjs" linerange="19-27"/>
+         <lstinputlisting class="head hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="237-242"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="243-250"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="252-257"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="261-261"/>
+         <lstinputlisting class="end hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="262-268"/>
        </div>
      </div>
    </div>
@@ -42,13 +40,28 @@ const paradox = <impress.slide title="Paradox">
 /*---------------------------------------------------------------------*/
 /*    css ...                                                          */
 /*---------------------------------------------------------------------*/
-paradox.css = <style>
-[data-step="1"] .paradox {
+driver.css = <style>
+[data-step="1"] .driver {
    top: -4ex;      
 }
 
-[data-step="2"] .paradox {
-   top: -14ex;      
+[data-step="2"] .driver {
+   top: -8ex;      
+}
+
+[data-step="0"] .driver .stall,
+[data-step="0"] .driver .end {
+   opacity: 0.4;
+}
+
+[data-step="1"] .driver .head,
+[data-step="1"] .driver .end {
+   opacity: 0.4;
+}
+
+[data-step="2"] .driver .head,
+[data-step="2"] .driver .stall {
+   opacity: 0.4;
 }
 
 .title {
@@ -89,7 +102,7 @@ paradox.css = <style>
    border-bottom: 0;
    border-top: 0;
    margin: 0;
-   font-size: 40%;
+   font-size: 28%;
 }
 </style>;
 

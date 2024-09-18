@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Sun Jul 28 13:30:44 2024 (serrano)                */
+/*    Last change :  Wed Sep 18 09:23:28 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    How hard a Sudoku                                                */
@@ -43,7 +43,7 @@ hard.css = <style>
    text-align: center;
    background-color: var(--greyverydark);
    color: white;
-   padding-top: 8ex;
+   padding-top: 6ex;
    padding-left: 1em;
 }
 
@@ -76,8 +76,8 @@ hard.css = <style>
 }
 
 .rotate:nth-child(5) {
-   transform: translateX(-1em);
-   font-size: 200%;
+   transform: translateX(-0.5em);
+   font-size: 350%;
    color: var(--red);
 }
 </style>
