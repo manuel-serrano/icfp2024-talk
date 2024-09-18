@@ -1,10 +1,10 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/ecoop22/config.js                         */
+/*    serrano/diffusion/talk/icfp24/config.js                          */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 15:39:31 2015                          */
-/*    Last change :  Thu Jun  2 12:10:11 2022 (serrano)                */
-/*    Copyright   :  2015-22 Manuel Serrano                            */
+/*    Last change :  Wed Sep 18 10:51:40 2024 (serrano)                */
+/*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HOPJS talk configuration                                         */
 /*=====================================================================*/
@@ -28,7 +28,7 @@ const inriaSVG = path.join( ROOT, "svg/inria.svgz" );
 
 
 
-export const name = "ECOOP22";
+export const name = "ICFP24";
 export const impress = "hopimpress-0.6.*.hz";
 export const slideWidth = 1920, slideHeight = 1080;
 
