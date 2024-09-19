@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 17:54:30 2024 (serrano)                */
+/*    Last change :  Thu Sep 19 10:25:28 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
@@ -28,7 +28,8 @@ const driver = <impress.slide title="Driver">
      <div class="codes driver">
        <div class="code" step="0-2">
          <lstinputlisting class="head hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="237-242"/>
-         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="243-250"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="243-248"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="250-250"/>
          <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="252-257"/>
          <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="261-261"/>
          <lstinputlisting class="end hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="262-268"/>
