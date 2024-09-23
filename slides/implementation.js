@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Sep 18 09:46:47 2024 (serrano)                */
+/*    Last change :  Mon Sep 23 15:03:23 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku                                                           */
@@ -23,7 +23,7 @@ export { implementation };
 /*    implementation ...                                               */
 /*---------------------------------------------------------------------*/
 const implementation = <impress.slide title="Implementation">
-   <div>Implementation</div>
+   <div>FP + FI</div>
 </impress.slide>
 
 /*---------------------------------------------------------------------*/
