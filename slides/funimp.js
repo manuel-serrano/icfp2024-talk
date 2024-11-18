@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Mon Nov 18 06:29:25 2024 (serrano)                */
+/*    Last change :  Mon Nov 18 08:56:32 2024 (serrano)                */
 /*    Copyright   :  2015-24 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku                                                           */
@@ -22,7 +22,7 @@ export { funimp };
 /*---------------------------------------------------------------------*/
 const funimp = <impress.slide title="Functional + Imperative">
    <div id="lhs">
-      <div step="0">s <span class="plus">+</span> p <span class="plus">+</span> a <span class="plus">+</span> <span class="dc">d</span> <span class="plus">+</span> <span class="dc">c</span></div>
+      <div step="0">s <span class="plus">+</span> p <span class="plus">+</span> a <span class="plus">+</span> m <span class="plus">+</span> <span class="dc">d</span> <span class="plus">+</span> <span class="dc">c</span></div>
       <div step="1">functional <span class="plus">+</span> imperative <sup>*</sup> </div>
       <div step="2">javascript <span class="plus">+</span> esterel </div>
    </div>

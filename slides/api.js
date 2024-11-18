@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Fri Jul 26 16:08:42 2024                          */
-/*    Last change :  Sat Jul 27 16:02:06 2024 (serrano)                */
+/*    Last change :  Mon Nov 18 08:55:50 2024 (serrano)                */
 /*    Copyright   :  2024 manuel serrano                               */
 /*    -------------------------------------------------------------    */
 /*    Sudoku solver API                                                */
@@ -68,6 +68,7 @@ const api = <impress.slide title="Sudoku API">
        <li step="12-">state</li>
        <li step="13-">parallelism</li>
        <li step="14-">abortion</li>
+       <li step="15-">memory</li>
      </ul>
    </div>
 </impress.slide>
@@ -235,14 +236,16 @@ table.grid {
 [data-step="11"] table.grid,
 [data-step="12"] table.grid,
 [data-step="13"] table.grid,
-[data-step="14"] table.grid {
+[data-step="14"] table.grid,
+[data-step="15"] table.grid {
    font-size: 20%;
 }
 
 [data-step="11"] .container21,
 [data-step="12"] .container21,
 [data-step="13"] .container21,
-[data-step="14"] .container21 {
+[data-step="14"] .container21,
+[data-step="15"] .container21 {
    display: none;
 }
 
@@ -250,10 +253,12 @@ table.grid {
 [data-step="12"] .container2,
 [data-step="13"] .container2,
 [data-step="14"] .container2,
+[data-step="15"] .container2,
 [data-step="11"] .container3,
 [data-step="12"] .container3,
 [data-step="13"] .container3,
-[data-step="14"] .container3 {
+[data-step="14"] .container3,
+[data-step="15"] .container3 {
    opacity: 0.6;
    filter: blur(5px);
 }
