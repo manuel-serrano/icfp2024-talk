@@ -11,10 +11,16 @@ npm run build
 npm run slides
 ```
 
-For giving the talk
+For giving the talk long version
 
 ```
 npm run talk
+```
+
+For giving the talk short version
+
+```
+VERSION=short npm run talk
 ```
 
 Requirements

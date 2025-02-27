@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Wed Sep 18 09:39:17 2024 (serrano)                */
-/*    Copyright   :  2016-24 Manuel Serrano                            */
+/*    Last change :  Wed Feb 26 07:08:33 2025 (serrano)                */
+/*    Copyright   :  2016-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
 /*=====================================================================*/
@@ -22,7 +22,7 @@ import * as impress from "hopimpress-0.6.*.hz";
 /*---------------------------------------------------------------------*/
 /*    longVersion                                                      */
 /*---------------------------------------------------------------------*/
-let longVersion = true;
+let longVersion = process.VERSION !== "short";
 
 /*---------------------------------------------------------------------*/
 /*    R ... hop resolver                                               */
@@ -36,13 +36,13 @@ const R = {
 /*    icfp24 ...                                                       */
 /*---------------------------------------------------------------------*/
 service icfp24(o) {
-   var s = slides(slideWidth, slideHeight);
-   var svc = service(id) {
+   if (o && o.longVersion === "false") longVersion = false;
+   
+   const s = slides(slideWidth, slideHeight);
+   const svc = service(id) {
       hop.broadcast("hopimpress", { goto: id });
    };
 
-   if (o && o.longVersion === "false") longVersion = false;
-   
    return <impress.html logo=${require.resolve("./etc/logo.png")}>
 
      <head css=${impress.cssCover}
@@ -273,4 +273,6 @@ import { conclusion } from "./slides/conclusion.js";
 import { ilfi } from "./slides/ilfi.js";
 import { calibration } from "./slides/calibration.js";
    
-console.log(`"http://localhost:${hop.port}/hop/icfp24?longVersion=true" ready...`);
+console.log("browse either:")
+console.log(`http://localhost:${hop.port}/hop/icfp24?longVersion=false`);
+console.log(`http://localhost:${hop.port}/hop/icfp24?longVersion=true`);
