@@ -11,17 +11,13 @@ npm run build
 npm run slides
 ```
 
-For giving the talk long version
+For giving the talk version
 
 ```
 npm run talk
 ```
 
-For giving the talk short version
-
-```
-VERSION=short npm run talk
-```
+and select the URL according to the length of the talk.
 
 Requirements
 ------------
