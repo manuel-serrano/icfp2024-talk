@@ -11,7 +11,7 @@ npm run build
 npm run slides
 ```
 
-For giving the talk version
+For giving the actual talk (disabling the screen blanker).
 
 ```
 npm run talk
