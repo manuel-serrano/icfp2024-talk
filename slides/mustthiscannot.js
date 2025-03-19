@@ -1,50 +1,60 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/icfp24/slides/strategy.js                 */
+/*    serrano/diffusion/talk/icfp24/slides/mustthiscannot.js           */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
-/*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Mar 19 09:45:03 2025 (serrano)                */
-/*    Copyright   :  2015-25 Manuel Serrano                            */
+/*    Creation    :  Wed Mar 19 07:14:05 2025                          */
+/*    Last change :  Wed Mar 19 13:46:50 2025 (serrano)                */
+/*    Copyright   :  2025 Manuel Serrano                               */
 /*    -------------------------------------------------------------    */
-/*    HipHop                                                           */
+/*    MustThisCannot implementation                                    */
 /*=====================================================================*/
-"use hopscript";
 
 /*---------------------------------------------------------------------*/
 /*    import ...                                                       */
 /*---------------------------------------------------------------------*/
 import * as impress from "hopimpress-0.6.*.hz";
+import * as boards from "../src/boards.js";
+import * as utils from "../src/utils.mjs";
 import { LSTINPUTLISTING } from "../listings.js";
 
-export { strategy };
+export { mustthiscannot };
 
 /*---------------------------------------------------------------------*/
-/*    strategy ...                                                     */
+/*    mustthiscannot ...                                               */
 /*---------------------------------------------------------------------*/
-const strategy = <impress.slide title="Strategy">
-   <div class="title">HiddenSingle Strategy</div>
+const mustthiscannot = <impress.slide title="MustThisCannot">
    
-   <div class="scroll">
-     <div class="codes strategy">
-       <div class="code">
-         <lstinputlisting language="hiphop" src="src/sudoku.hh.mjs" linerange="195-214"/>
-       </div>
-     </div>
-   </div>
+  <div class="scroll">
+    <div class="codes cannot">
+      <div class="code">
+        <lstinputlisting language="hiphop" src="src/mustthiscannot.hh.mjs"/>
+      </div>
+
+      <div class="code" step="1">
+        <lstinputlisting language="hiphop" src="src/sudoku.hh.mjs" linerange="162-172"/>
+      </div>
+    </div>
+  </div>
 </impress.slide>;
 
 /*---------------------------------------------------------------------*/
-/*    css ...                                                          */
+/*    mustthiscannot ...                                               */
 /*---------------------------------------------------------------------*/
-strategy.css = <style>
-.title {
-   color: var(--greydark);
-   font-weight: bold;
-   text-align: center;
+mustthiscannot.css = <style>
+[data-step="1"] .cannot {
+   top: -13ex;      
 }
 
 .code {
    transition: 1s all;
+}
+
+.code pre {
+   width: 100%;
+   border-right: 0;
+   border-top: 0;
+   border-bottom: 0;
+   margin-top: 0;
 }
 
 .codes {
@@ -60,22 +70,11 @@ strategy.css = <style>
 .scroll {
    overflow: hidden;
    position: absolute;
-   top: 3ex;
    left: 0.2em;
    right: 0.2em;
    bottom: 0;
-   height: 80%;
+   top: 0.5ex;
+   height: 95%;
+   border: solid 1px #ddd;
 }
-		 
-.code pre {
-   padding: 0;
-   width: 100%;
-   padding-left: 0.2em;
-   margin-right: 0.2em;
-   border-bottom: 0;
-   border-top: 0;
-   margin: 0;
-   font-size: 28%;
-}
-</style>;
-
+</style>

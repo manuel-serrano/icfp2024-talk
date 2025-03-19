@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Fri Jul 26 16:08:42 2024                          */
-/*    Last change :  Mon Nov 18 08:55:50 2024 (serrano)                */
-/*    Copyright   :  2024 manuel serrano                               */
+/*    Last change :  Tue Mar 18 10:35:38 2025 (serrano)                */
+/*    Copyright   :  2024-25 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku solver API                                                */
 /*=====================================================================*/
@@ -15,7 +15,7 @@
 /*---------------------------------------------------------------------*/
 import * as impress from "hopimpress-0.6.*.hz";
 import * as boards from "../src/boards.js";
-import * as utils from "../src/utils.js";
+import * as utils from "../src/utils.mjs";
 
 export { api };
 
@@ -112,7 +112,7 @@ api.css = <style>
 }
 
 .stepback li:before {
-   content: "\27a4";
+   content: "\2738";
    font-size: 60%;
    margin-right: 0.2em;
    vertical-align: middle;

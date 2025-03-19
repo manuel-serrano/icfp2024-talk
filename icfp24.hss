@@ -1,10 +1,10 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/FOO/icfp24.hss                            */
+/*    serrano/diffusion/talk/icfp24/icfp24.hss                         */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:41:22 2015                          */
-/*    Last change :  Fri Jul 26 01:55:08 2024 (serrano)                */
-/*    Copyright   :  2015-24 Manuel Serrano                            */
+/*    Last change :  Tue Mar 18 09:47:34 2025 (serrano)                */
+/*    Copyright   :  2015-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ECOOP22 presentation CSS                                         */
 /*=====================================================================*/
@@ -16,6 +16,7 @@
 @import 'fonts.hss?hss';
 @import 'theme.hss?hss';
 @import 'listings.hss?hss';
+@import 'node_modules/tippy.js/dist/tippy.css';
 
 /*---------------------------------------------------------------------*/
 /*    body                                                             */
@@ -74,3 +75,12 @@ hopimpress-slide.fad[data-fad="on"] {
     margin-left: auto;
     margin-right: auto;
 }
+
+/*---------------------------------------------------------------------*/
+/*    tooltips                                                         */
+/*---------------------------------------------------------------------*/
+.tooltip {
+  font-size: 220%;
+  font-family: Kaffeesatz;
+}
+

@@ -1,11 +1,11 @@
 // -*- Mode: typescript; typescript-indent-level: 3; indent-tabs-mode: nil -*-
 /*=====================================================================*/
-/*    serrano/diffusion/article/hiphop-sudoku-pearl/sudoku.hh.mjs      */
+/*    serrano/diffusion/talk/icfp24/src/sudoku.hh.mjs                  */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano & Robby Findler                    */
 /*    Creation    :  Sat Dec 23 07:16:35 2023                          */
-/*    Last change :  Tue Jun  4 10:47:15 2024 (serrano)                */
-/*    Copyright   :  2023-24 Manuel Serrano & Robby Findler            */
+/*    Last change :  Wed Mar 19 09:37:57 2025 (serrano)                */
+/*    Copyright   :  2023-25 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku resolver that can make several guesses when stuck using   */
 /*    a JS function.                                                   */
@@ -15,7 +15,6 @@
 /*    The module                                                       */
 /*---------------------------------------------------------------------*/
 import * as hh from "@hop/hiphop";
-import * as boards9x9 from "./boards9x9.mjs";
 import "./set.mjs";
 import {
    BOARD_SIZE, iota, digits, margins,
@@ -23,8 +22,13 @@ import {
 
 export {
    SudokuMachine, SudokuNakedSingle, SudokuHiddenSingle, SudokuNakedPair,
-   solve, step, runExpertToCompletion
+   solve, step
 }
+
+/*---------------------------------------------------------------------*/
+/*    consoleLog ...                                                   */
+/*---------------------------------------------------------------------*/
+let $console = console;
 
 /*---------------------------------------------------------------------*/
 /*    verbose                                                          */
@@ -52,7 +56,7 @@ const SudokuMachine = strategies => hiphop module() {
    inout unsolved = new Set() combine (x, y) => x.union(y);
 
    loop {
-      abort immediate (reset.nowval) {
+      /*#@abort#*/abort immediate (reset.nowval) { /*#/@abort#*/
          fork {
             ${MustThisCannot()}
          } par {
@@ -70,7 +74,7 @@ const SudokuMachine = strategies => hiphop module() {
       })})}
 
       yield;
-      emit reset(false);
+      /*#@abort#*/emit reset(false);/*#/@abort#*/
    }
 }
 
@@ -246,18 +250,18 @@ const driver = (mach, givens) => {
 
             for (let guess of digits) {
                newGivens[`must${i}${j}`] = new Set([guess]);
-               mach.guessNum++; if (verbose > 0) { console.log(margins[mach.depth] + `guessing ${i}x${j} val=${guess}/{${digits.array()}} [${mach.guessNum}:${mach.depth}]`); mach.depth++; }
+               mach.guessNum++; if (verbose > 0) { $console.log(margins[mach.depth] + `guessing ${i}x${j} val=${guess}/{${digits.array()}} [${mach.guessNum}:${mach.depth}]`); mach.depth++; }
                const newSignals = driver(mach, newGivens);
-               mach.depth--; // console.log is here to make this line not appear in the paper
+               mach.depth--;
                if (newSignals.status === "solved") {
                   return newSignals;
                } else {
                   mach.react({reset: true});
                }
             }
-            if (verbose > 0) { // console.log("hide this line to the paper");
-               console.log(margins[mach.depth] +`guess ${i}x${j} REJECT ${signals.unsolved.size}/${iota.length * iota.length}`);
-            } // console.log("hide this line to the paper");
+            if (verbose > 0) {
+               $console.log(margins[mach.depth] +`guess ${i}x${j} REJECT ${signals.unsolved.size}/${iota.length * iota.length}`);
+            }
             return {status: "reject"};
 
          case "solved":
@@ -265,6 +269,47 @@ const driver = (mach, givens) => {
             return signals;
       }
    }
+}
+
+/*---------------------------------------------------------------------*/
+/*    sudoku ...                                                       */
+/*---------------------------------------------------------------------*/
+const driverAsync = async (mach, givens) => {
+   return new Promise(async (resolve, reject) => {
+      let res = false;
+      const signals = mach.react(givens);
+      switch (signals.status) {
+         case "progress":
+            break;
+         case "stall":
+            const { i, j, digits } = signals.unsolved.first();
+            const newGivens = Object.assign({}, givens);
+
+            for (let guess of digits) {
+               newGivens[`must${i}${j}`] = new Set([guess]);
+               mach.guessNum++; if (verbose > 0) { $console.log(margins[mach.depth] + `guessing ${i}x${j} val=${guess}/{${digits.array()}} [${mach.guessNum}:${mach.depth}]`); mach.depth++; }
+               const newSignals = await driverAsync(mach, newGivens);
+               mach.depth--;
+               if (newSignals.status === "solved") {
+                  res = true;
+                  resolve(newSignals);
+               } else {
+                  mach.react({reset: true});
+               }
+            }
+            if (verbose > 0) {
+               $console.log(margins[mach.depth] +`guess ${i}x${j} REJECT ${signals.unsolved.size}/${iota.length * iota.length}`);
+            }
+            res = true;
+            resolve({status: "reject"});
+
+         case "solved":
+         case "reject":
+            res = true;
+            resolve(signals);
+      }
+      if (!res) setTimeout(() => driverAsync(mach, givens).then(resolve), 0);
+   });
 }
 
 /*---------------------------------------------------------------------*/
@@ -280,18 +325,20 @@ export function resetDriver(mach, givens) {
 /*---------------------------------------------------------------------*/
 /*    solve ...                                                        */
 /*---------------------------------------------------------------------*/
-const solve = (strategies, board, opt) => {
-   console.log("----------------------");
-   console.log("strategies", strategies.map(x => x.loc.pos)); // would be nice to have line/column but at least we have the position!
+const solve = async (strategies, board, opt) => {
+   if (opt && "console" in opt) $console = opt.console;
+
+   $console.log("----------------------");
+   $console.log("strategies", strategies.map(x => x.loc.pos)); // would be nice to have line/column but at least we have the position!
    const sweep = false;
-   const mach = (opt && opt.mach) || new hh.ReactiveMachine(SudokuMachine(strategies), { sweep, verbose: parseInt(process.env?.VERBOSE ?? "1") });
+   const mach = (opt && opt.mach) || new hh.ReactiveMachine(SudokuMachine(strategies), { sweep });
    const givens = parseBoard(board);
-   displayBoard(givens);
+   displayBoard(givens, $console);
    initMargins();
    mach.depth = 0;
    mach.guessNum = 0;
    verbose = (opt && "verbose" in opt) ? opt.verbose : 1;
-   
+
    try {
       if (opt?.abortonguess) {
          mach.addEventListener("status", (evt) => {
@@ -304,25 +351,26 @@ const solve = (strategies, board, opt) => {
          });
       }
       
-      let signals = driver(mach, givens);
+      let signals = await driverAsync(mach, givens);
 
       if (signals.status === "solved") {
-         const check = checkSolution(signals);
-         console.log("");
-         displayBoard(signals);
-         console.log("");
-         console.log("# reactions:", mach.age(), " # guesses:", mach.guessNum);
-         console.log("check:", check);
-         if (process.env.SUDOKU_TEST && !check) {
-            console.error("test failed.");
-            process.exit(1);
-         }
-      } else {
-         console.log("no solution!");
+         setTimeout(() => {
+            const check = checkSolution(signals);
+            $console.log("");
+            displayBoard(signals, $console);
+            $console.log("");
+            $console.log("# reactions:", mach.age(), " # guesses:", mach.guessNum);
+            $console.log("check:", check);
+            if (!check) {
+               console.error("test failed.");
+            }
+         } else {
+            $console.log("no solution!");
+         }, 0);
       }
    } catch (e) {
       if (e === "guessing") {
-         console.log("aborted after", mach.guessNum, "guess(es)");
+         $console.log("aborted after", mach.guessNum, "guess(es)");
       } else {
          throw e;
       }
@@ -337,7 +385,7 @@ const solve = (strategies, board, opt) => {
 const step = (mach, board, verbose) => {
    const givens = parseBoard(board);
    if (verbose) {
-      displayBoard(givens);
+      displayBoard(givens, $console);
    }
    initMargins();
    
@@ -351,31 +399,13 @@ const step = (mach, board, verbose) => {
    while (signals.status === "progress") {
       res = initsize - signals.unsolved.size;
       if (verbose) {
-         console.log(signals.status, res, initsize, signals.unsolved.size);
-         displayBoard(signals);
+         $console.log(signals.status, res, initsize, signals.unsolved.size);
+         displayBoard(signals, $console);
       }
       signals = mach.react(givens);
    }
    return res;
 }
 
-if (process.env?.TRYBOARD) {
-   step(new hh.ReactiveMachine(SudokuMachine([SudokuNakedSingle])),boards9x9.paper, true);
-}
+const sweep = true;
 
-const sweep = false;
-
-/*---------------------------------------------------------------------*/
-/*    runExpertToCompletion ...                                        */
-/*---------------------------------------------------------------------*/
-function runExpertToCompletion() {
-   const prog = SudokuMachine([ // create a HipHop program solving
-      SudokuNakedPair,          // Sudoku problems, using three 
-      SudokuNakedSingle,        // strategies, each executing
-      SudokuHiddenSingle        // in parallel.
-   ]);
-   const mach = new hh.ReactiveMachine(prog, {sweep: false});
-   return driver(mach, parseBoard(boards9x9.expert));
-}
-
-// TRYBOARD=true NODE_OPTIONS="--enable-source-maps --no-warnings --loader ./node_modules/@hop/hiphop/lib/hiphop-loader.mjs" node sudoku.hh.mjs

@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Fri Aug 30 13:55:29 2024 (serrano)                */
-/*    Copyright   :  2015-24 Manuel Serrano                            */
+/*    Last change :  Wed Mar 19 10:02:41 2025 (serrano)                */
+/*    Copyright   :  2015-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Talk title                                                       */
 /*=====================================================================*/
@@ -34,7 +34,7 @@ const title = <impress.slide title="title">
    </div>
    
    <div class="title-block-location">
-      <span class="title-conf">ICFP&#39;24 - MILAN</span>
+      <span class="title-conf">2024-2025</span>
    </div>
 </impress.slide>
 

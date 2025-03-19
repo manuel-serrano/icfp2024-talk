@@ -7,6 +7,7 @@ traffic light example.
 
 ```
 npm install
+npm run patch # this is needed to patch tiipy.esm.js
 npm run build
 npm run slides
 ```

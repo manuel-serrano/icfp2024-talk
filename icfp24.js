@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Wed Feb 26 07:08:33 2025 (serrano)                */
+/*    Last change :  Tue Mar 18 09:12:13 2025 (serrano)                */
 /*    Copyright   :  2016-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                             */
@@ -55,7 +55,10 @@ service icfp24(o) {
         "imports": {
            "@hop/hop": "${R.resolve('@hop/hop/client.mjs')}",
            "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
-           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}"
+           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}",
+	   "tippy.js": "${R.resolve('tippy.js/dist/tippy.mjs')}",
+	   "tippy.js/dist/tippy.css": "${R.resolve('tippy.js/dist/tippy.css')}",
+	   "@popperjs/core": "${R.resolve('@popperjs/core/lib/index.js')}"
         }
      }
      </script>
@@ -63,6 +66,8 @@ service icfp24(o) {
      <script type="module">
         import { ReactiveMachine } from "@hop/hiphop";
         import { mach } from "src/traffic.mjs";
+        import { solve } from "src/sudoku.mjs";
+        import tippy from "tippy.js";
         window.mach = mach;
      </script>
    
@@ -97,12 +102,17 @@ service icfp24slides(o) {
 	   script=${[impress.jscript]}/>
 
      <impress.panel id="panel" controls=${false}/>
-     
+
      <script type="importmap"> {
         "imports": {
            "@hop/hop": "${R.resolve('@hop/hop/client.mjs')}",
            "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
-           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}"
+           "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}",
+           "src/sudoku.mjs": "${R.resolve('src/sudoku.mjs')}",
+           "src/boards.js": "${R.resolve('src/boards.js')}",
+	   "tippy.js": "${R.resolve('tippy.js/dist/tippy.mjs')}",
+	   "tippy.js/dist/tippy.css": "${R.resolve('tippy.js/dist/tippy.css')}",
+	   "@popperjs/core": "${R.resolve('@popperjs/core/lib/index.js')}"
         }
      }
      </script>
@@ -110,6 +120,9 @@ service icfp24slides(o) {
      <script type="module">
         import { ReactiveMachine } from "@hop/hiphop";
         import { mach as mach1, mach3, mach4, mach5, mach6, mach7 } from "src/traffic.mjs";
+        import * as s from "src/sudoku.mjs";
+        import * as boards from "src/boards.js";
+   
         window.mach = window.mach1 = mach1;
         window.mach3 = mach3;
         window.mach4 = mach4;
@@ -143,6 +156,9 @@ service icfp24slides(o) {
         mach5.reactO = mach.reactO;
         mach6.reactO = mach.reactO;
         mach7.react7 = mach.react7;
+
+        window.s = s;
+        window.boards = boards;
      </script>
    
      ${slides(width, height)}
@@ -217,10 +233,14 @@ function slides(width, height) {
       ${ longVersion 
 	 ? <impress.row class="row-stack" data-x=${3 * (width + 128)} data-y=0>
               ${implementation}
+	      ${howto}
+	      ${signals}
+	      ${mustthiscannot}
+	      ${mustothercannot}
               ${machine}
-              ${cell}
               ${strategy}
               ${driver}
+              ${demo}
            </impress.row>
          : "" }
    
@@ -263,10 +283,15 @@ import { paradox } from "./slides/paradox.js";
 
 // chapter4
 import { implementation } from "./slides/implementation.js";
+import { howto } from "./slides/howto.js";
+import { signals } from "./slides/signals.js";
+import { mustthiscannot } from "./slides/mustthiscannot.js";
+import { mustothercannot } from "./slides/mustothercannot.js";
 import { machine } from "./slides/machine.js";
 import { cell } from "./slides/cell.js";
 import { strategy } from "./slides/strategy.js";
 import { driver } from "./slides/driver.js";
+import { demo } from "./slides/demo.js";
 
 // conclusion
 import { conclusion } from "./slides/conclusion.js";

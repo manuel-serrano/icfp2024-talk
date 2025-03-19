@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  manuel serrano                                    */
 /*    Creation    :  Tue May 24 09:02:20 2022                          */
-/*    Last change :  Sun Jul 28 14:18:11 2024 (serrano)                */
-/*    Copyright   :  2022-24 manuel serrano                            */
+/*    Last change :  Wed Mar 19 08:16:32 2025 (serrano)                */
+/*    Copyright   :  2022-25 manuel serrano                            */
 /*    -------------------------------------------------------------    */
 /*    Listing configuration                                            */
 /*=====================================================================*/
@@ -83,6 +83,12 @@ pre.hiphop .fontifier-prog-reserved.new {
     font-weight: bold;
 }
 
-pre.hiphop .fontifier-prog-string {
+pre.hiphop .fontifier-prog-string,
+pre.hiphop .fontifier-prog-template {
     color: var(--red);
+}
+
+pre.hiphop .delay {
+    color: var(--greendark);
+    font-weight: bold;
 }

@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Thu Sep 19 10:25:28 2024 (serrano)                */
-/*    Copyright   :  2015-24 Manuel Serrano                            */
+/*    Last change :  Wed Mar 19 10:01:27 2025 (serrano)                */
+/*    Copyright   :  2015-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
 /*=====================================================================*/
@@ -22,17 +22,17 @@ export { driver };
 /*    driver ...                                                       */
 /*---------------------------------------------------------------------*/
 const driver = <impress.slide title="Driver">
-   <div class="title">The driver</div>
+   <div class="title">The JavaScript Driver</div>
    
    <div class="scroll">
      <div class="codes driver">
        <div class="code" step="0-2">
-         <lstinputlisting class="head hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="237-242"/>
-         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="243-248"/>
-         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="250-250"/>
-         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="252-257"/>
-         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="261-261"/>
-         <lstinputlisting class="end hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="262-268"/>
+         <lstinputlisting class="head hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="242-246"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="247-252"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="254-254"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="256-261"/>
+         <lstinputlisting class="stall hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="265-265"/>
+         <lstinputlisting class="end hiphop" language="hiphop" src="src/sudoku.hh.mjs" linerange="267-272"/>
        </div>
      </div>
    </div>

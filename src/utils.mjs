@@ -1,11 +1,11 @@
 // -*- Mode: typescript; typescript-indent-level: 3; indent-tabs-mode: nil -*-
 /*=====================================================================*/
-/*    serrano/diffusion/article/hiphop-sudoku-pearl/utils.mjs          */
+/*    serrano/diffusion/talk/icfp24/src/utils.mjs                      */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano & Robby Findler                    */
 /*    Creation    :  Sat Dec 23 07:22:03 2023                          */
-/*    Last change :  Fri May 31 10:21:09 2024 (serrano)                */
-/*    Copyright   :  2023-24 Manuel Serrano & Robby Findler            */
+/*    Last change :  Wed Mar 19 11:32:05 2025 (serrano)                */
+/*    Copyright   :  2023-25 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
 /*    Utilities for building and displaying SUDOKU boards.             */
 /*=====================================================================*/
@@ -82,10 +82,10 @@ const parseBoard = (board) => {
 /*---------------------------------------------------------------------*/
 /*    displayBoard ...                                                 */
 /*---------------------------------------------------------------------*/
-export function displayBoard(signals) {
+export function displayBoard(signals, con) {
   // something is wierd about the way `i` and `j` are swapped here
   const board = iota.map(j => iota.map(i => cell_number(signals,i,j) || "."));
-  board.forEach((row, j) => console.log("|" + row.join("") + "|"));
+   board.forEach((row, j) => con.log("|" + row.join("") + "|"));
 }
 
 function cell_number(signals,i,j) {
