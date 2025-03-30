@@ -4,7 +4,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano & Robby Findler                    */
 /*    Creation    :  Sat Dec 23 07:16:35 2023                          */
-/*    Last change :  Wed Mar 19 09:37:57 2025 (serrano)                */
+/*    Last change :  Sun Mar 30 13:23:54 2025 (serrano)                */
 /*    Copyright   :  2023-25 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku resolver that can make several guesses when stuck using   */
@@ -364,9 +364,9 @@ const solve = async (strategies, board, opt) => {
             if (!check) {
                console.error("test failed.");
             }
-         } else {
-            $console.log("no solution!");
          }, 0);
+      } else {
+         $console.log("no solution!");
       }
    } catch (e) {
       if (e === "guessing") {

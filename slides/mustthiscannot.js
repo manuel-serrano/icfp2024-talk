@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Mar 19 07:14:05 2025                          */
-/*    Last change :  Wed Mar 19 13:46:50 2025 (serrano)                */
+/*    Last change :  Sun Mar 30 13:48:09 2025 (serrano)                */
 /*    Copyright   :  2025 Manuel Serrano                               */
 /*    -------------------------------------------------------------    */
 /*    MustThisCannot implementation                                    */
@@ -42,7 +42,7 @@ const mustthiscannot = <impress.slide title="MustThisCannot">
 /*---------------------------------------------------------------------*/
 mustthiscannot.css = <style>
 [data-step="1"] .cannot {
-   top: -13ex;      
+   top: -10ex;      
 }
 
 .code {

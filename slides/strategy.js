@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 14:24:34 2015                          */
-/*    Last change :  Wed Mar 19 09:45:03 2025 (serrano)                */
+/*    Last change :  Sun Mar 30 13:57:35 2025 (serrano)                */
 /*    Copyright   :  2015-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HipHop                                                           */
@@ -27,7 +27,7 @@ const strategy = <impress.slide title="Strategy">
    <div class="scroll">
      <div class="codes strategy">
        <div class="code">
-         <lstinputlisting language="hiphop" src="src/sudoku.hh.mjs" linerange="195-214"/>
+         <lstinputlisting language="hiphop" src="src/sudoku.hh.mjs" linerange="195-211"/>
        </div>
      </div>
    </div>
