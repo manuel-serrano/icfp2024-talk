@@ -3,7 +3,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2024                          */
-/*    Last change :  Fri Apr  4 19:15:35 2025 (serrano)                */
+/*    Last change :  Sat Apr  5 07:46:02 2025 (serrano)                */
 /*    Copyright   :  2024-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                              */
@@ -80,7 +80,7 @@ service icfp24(o) {
      <impress.cover title=${name} src=${icfp24slides}>
        <ol>
 	 ${ impress.slideNodes(s)
-	    .map( function( x, idx=undefined, arr=undefined ) {
+	    .map(function(x, idx=undefined, arr=undefined) {
 	       const title = x[ "data-hopimpress-title" ];
 	       return <li onclick=~{${svc}(${x.id}).post()} >
                    ${title ? title : x.id}
