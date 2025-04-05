@@ -5,17 +5,20 @@
    "category": "article",
    "title": "ICFP",
    "directory": "talk",
-   "comment": "ICFP'24 presentation",
+   "comment": "ICFP'24 (and more) presentation",
    "dependencies": {
       "@hop/hiphop": "https://www-sop.inria.fr/members/Manuel.Serrano/software/npmx/hiphop.tgz",
       "@hop/hop": "https://www-sop.inria.fr/members/Manuel.Serrano/software/npmx/hop.tgz",
+      "@hop/fontifier": "https://www-sop.inria.fr/members/Manuel.Serrano/software/npmx/fontifier.tgz",
       "tippy.js": "^6.3.7"
    },
    "scripts": {
-      "build": "node_modules/@hop/hiphop/bin/hhc.mjs src/traffic.hh.mjs -o src/traffic.mjs && node_modules/@hop/hiphop/bin/hhc.mjs src/sudoku.hh.mjs -o src/sudoku.mjs",
-      "slides": "hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.js",
-      "talk": "xset s off -dpms && hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.js",
-      "debug": "hop --no-zeroconf -g -p 8888 --so-policy ifexists icfp24.js",
+      "build": "node_modules/@hop/hiphop/bin/hhc.mjs src/traffic.hh.mjs -o src/traffic.mjs && node_modules/@hop/hiphop/bin/hhc.mjs src/sudoku.hh.mjs -o src/sudoku.mjs && node_modules/@hop/hopc/bin/hopc.mjs -o icfp24.mjs icfp24.hop.js",
+      "slides": "hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.hop.js",
+      "slides.node": "nodejs icfp24.mjs",
+      "talk": "xset s off -dpms && hop --no-zeroconf -p 8888 --so-policy ifexists icfp24.hop.js",
+      "talk.node": "xset s off -dpms && node icfp24.mjs",
+      "debug": "hop --no-zeroconf -g -p 8888 --so-policy ifexists icfp24.hop.js",
       "patch": "echo \"/* MS patch */ const process = {env: {} };\" > node_modules/tippy.js/dist/tippy.mjs; cat node_modules/tippy.js/dist/tippy.esm.js >> node_modules/tippy.js/dist/tippy.mjs"
    }
 }

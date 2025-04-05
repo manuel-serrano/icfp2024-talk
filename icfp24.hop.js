@@ -1,12 +1,12 @@
 /*=====================================================================*/
-/*    serrano/diffusion/talk/icfp24/icfp24.js                          */
+/*    serrano/diffusion/talk/icfp24/icfp24.hop.js                      */
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
-/*    Creation    :  Wed Oct 14 12:03:19 2016                          */
-/*    Last change :  Tue Mar 18 09:12:13 2025 (serrano)                */
-/*    Copyright   :  2016-25 Manuel Serrano                            */
+/*    Creation    :  Wed Oct 14 12:03:19 2024                          */
+/*    Last change :  Fri Apr  4 19:15:35 2025 (serrano)                */
+/*    Copyright   :  2024-25 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
-/*    ICFP24 presentation                                             */
+/*    ICFP24 presentation                                              */
 /*=====================================================================*/
 "use hopscript";
 
@@ -16,8 +16,9 @@
 import { name, slideWidth, slideHeight } from "./config.js";
 
 import * as fontifier from "@hop/fontifier";
+//import * as impress from "hopimpress-0.6.*.hz";
+import * as impress from "@hop/hopimpress";
 import * as path from "path";
-import * as impress from "hopimpress-0.6.*.hz";
 
 /*---------------------------------------------------------------------*/
 /*    longVersion                                                      */
@@ -56,6 +57,7 @@ service icfp24(o) {
            "@hop/hop": "${R.resolve('@hop/hop/client.mjs')}",
            "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
            "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}",
+           "src/sudoku.mjs": "${R.resolve('src/sudoku.mjs')}",
 	   "tippy.js": "${R.resolve('tippy.js/dist/tippy.mjs')}",
 	   "tippy.js/dist/tippy.css": "${R.resolve('tippy.js/dist/tippy.css')}",
 	   "@popperjs/core": "${R.resolve('@popperjs/core/lib/index.js')}"
@@ -67,8 +69,12 @@ service icfp24(o) {
         import { ReactiveMachine } from "@hop/hiphop";
         import { mach } from "src/traffic.mjs";
         import { solve } from "src/sudoku.mjs";
+        import { server } from "@hop/hop";
         import tippy from "tippy.js";
         window.mach = mach;
+
+        // needed for backward compatibility with pre-es6 modules
+        hop.server = server;
      </script>
    
      <impress.cover title=${name} src=${icfp24slides}>
