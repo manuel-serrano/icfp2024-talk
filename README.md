@@ -7,7 +7,7 @@ traffic light example.
 
 ```
 npm install
-npm run patch       # this is needed to patch tiipy.esm.js
+npm run patch       # this is needed to patch tippy.esm.js
 npm run build       # compile the hop and hiphop files
 npm run slides      # to run them with hop
 npm run slides.node # to run the slides with node

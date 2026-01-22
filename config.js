@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 15:39:31 2015                          */
-/*    Last change :  Wed Sep 18 10:51:40 2024 (serrano)                */
-/*    Copyright   :  2015-24 Manuel Serrano                            */
+/*    Last change :  Thu Jan 22 09:09:31 2026 (serrano)                */
+/*    Copyright   :  2015-26 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    HOPJS talk configuration                                         */
 /*=====================================================================*/
@@ -14,7 +14,7 @@
 /*    module ...                                                       */
 /*---------------------------------------------------------------------*/
 import * as path from "path";
-import * as hopconfig from "hop:config";
+import * as hopconfig from "@hop/config";
 
 export { inriaSVG };
 

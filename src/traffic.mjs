@@ -2,7 +2,7 @@ import * as $$hiphop from '@hop/hiphop';import * as hh from '@hop/hiphop';import
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':242}},$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':260},'%tag':'emit','signame':'light','apply':function () {
+}}),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':242}},$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':260},'%tag':'EMIT','signame':'light','apply':function () {
 return new Set(['red']);
 }}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':291},'%tag':'yield'})));
 const mach=new hh.ReactiveMachine(Traffic1);
@@ -14,16 +14,16 @@ return el.setAttribute('data-' + l,l);
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':639},'%tag':'sustain','signame':'light','apply':function () {
+}}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':639},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['red']);
 }}));
 const Traffic3=$$hiphop.MODULE({'%location':{'filename':'src/traffic.hh.mjs','pos':703},'%tag':'module'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':717},'direction':'INOUT','name':'light','init_func':function () {
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':774},'%tag':'done'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':788},'%tag':'fork'},$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':812},'%tag':'sustain','signame':'light','apply':function () {
+}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':774},'%tag':'TRAP'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':788},'%tag':'FORK'},$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':812},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['red']);
-}}),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':845},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':860},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':876},'%tag':'yield'}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':898},'%tag':'break'})))));
+}}),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':845},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':860},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':876},'%tag':'yield'}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':898},'%tag':'EXIT'})))));
 const mach3=new hh.ReactiveMachine(Traffic3);
 let lightHandler = function (light) {
 const el=document.getElementById(this.trafficId);
@@ -33,9 +33,9 @@ return el.setAttribute('data-' + l,l);
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1283},'%tag':'done'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':1297},'%tag':'fork'},$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1321},'%tag':'sustain','signame':'light','apply':function () {
+}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1283},'%tag':'TRAP'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':1297},'%tag':'FORK'},$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1321},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['red']);
-}}),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':1354},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1369},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1385},'%tag':'yield'}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1407},'%tag':'break'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1437},'%tag':'sustain','signame':'light','apply':function () {
+}}),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':1354},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1369},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1385},'%tag':'yield'}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1407},'%tag':'EXIT'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1437},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['green']);
 }}));
 const mach4=new hh.ReactiveMachine(Traffic4);
@@ -43,38 +43,38 @@ mach4.addEventListener('light',lightHandler);const Traffic5=$$hiphop.MODULE({'%l
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.LOCAL({'%location':{'filename':'src/traffic.hh.mjs','pos':1676},'%tag':'signal'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':1683},'name':'s','init_func':function () {
+}}),$$hiphop.LOCAL({'%location':{'filename':'src/traffic.hh.mjs','pos':1676},'%tag':'LOCAL'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':1683},'name':'s','init_func':function () {
 return false;
 },'combine_func':(x,y) => {
 return x || y;
-}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1721},'%tag':'done'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':1735},'%tag':'fork'},$$hiphop.SUSPEND({'%location':{'filename':'src/traffic.hh.mjs','pos':1751},'immediate':false,'apply':function () {
+}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1721},'%tag':'TRAP'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':1735},'%tag':'FORK'},$$hiphop.SUSPEND({'%location':{'filename':'src/traffic.hh.mjs','pos':1751},'immediate':false,'apply':function () {
 return ((() => {
 const s=this.s;return s.nowval;
 })());
-}},$$hiphop.SIGACCESS({'signame':'s','pre':false,'val':true,'cnt':false}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1792},'%tag':'sustain','signame':'light','apply':function () {
+}},$$hiphop.SIGACCESS({'signame':'s','pre':false,'val':true,'cnt':false}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1792},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['red']);
-}})),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':1836},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1851},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1867},'%tag':'yield'}),$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':1888},'%tag':'emit','signame':'s','apply':function () {
+}})),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':1836},'%tag':'par'},$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1851},'%tag':'yield'}),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':1867},'%tag':'yield'}),$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':1888},'%tag':'EMIT','signame':'s','apply':function () {
 return true;
-}}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1912},'%tag':'break'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1942},'%tag':'sustain','signame':'light','apply':function () {
+}}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':1912},'%tag':'EXIT'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':1942},'%tag':'SUSTAIN','signame':'light','apply':function () {
 return new Set(['green']);
 }})));
 const mach5=new hh.ReactiveMachine(Traffic5);
 mach5.addEventListener('light',lightHandler);const phase=(color,light,count) => {
-return $$hiphop.LOCAL({'%location':{'filename':'src/traffic.hh.mjs','pos':2135},'%tag':'signal'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':2142},'name':'s','init_func':function () {
+return $$hiphop.LOCAL({'%location':{'filename':'src/traffic.hh.mjs','pos':2135},'%tag':'LOCAL'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':2142},'name':'s','init_func':function () {
 return false;
 },'combine_func':(x,y) => {
 return x || y;
-}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':2180},'%tag':'done'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':2194},'%tag':'fork'},$$hiphop.SUSPEND({'%location':{'filename':'src/traffic.hh.mjs','pos':2210},'immediate':false,'apply':function () {
+}}),$$hiphop.TRAP({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':2180},'%tag':'TRAP'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':2194},'%tag':'FORK'},$$hiphop.SUSPEND({'%location':{'filename':'src/traffic.hh.mjs','pos':2210},'immediate':false,'apply':function () {
 return ((() => {
 const s=this.s;return s.nowval;
 })());
-}},$$hiphop.SIGACCESS({'signame':'s','pre':false,'val':true,'cnt':false}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':2251},'%tag':'sustain','signame':light,'apply':function () {
+}},$$hiphop.SIGACCESS({'signame':'s','pre':false,'val':true,'cnt':false}),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':2251},'%tag':'SUSTAIN','signame':light,'apply':function () {
 return new Set([color]);
 }})),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2288},'%tag':'par'},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2303},'%tag':'dollar'},Array.from({'length':count},(_) => {
 return $$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':2345},'%tag':'yield'});
-})),$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':2367},'%tag':'emit','signame':'s','apply':function () {
+})),$$hiphop.EMIT({'%location':{'filename':'src/traffic.hh.mjs','pos':2367},'%tag':'EMIT','signame':'s','apply':function () {
 return true;
-}}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':2391},'%tag':'break'})))));
+}}),$$hiphop.EXIT({'done':'done','%location':{'filename':'src/traffic.hh.mjs','pos':2391},'%tag':'EXIT'})))));
 };
 const Traffic6=$$hiphop.MODULE({'%location':{'filename':'src/traffic.hh.mjs','pos':2437},'%tag':'module'},$$hiphop.SIGNAL({'%location':{'filename':'src/traffic.hh.mjs','pos':2452},'direction':'INOUT','name':'light','init_func':function () {
 return new Set();
@@ -90,7 +90,7 @@ return x.union(y);
 return new Set();
 },'combine_func':(x,y) => {
 return x.union(y);
-}}),$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':2877},'%tag':'fork'},$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':2890}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2906},'%tag':'dollar'},phase('green','ns',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2942},'%tag':'dollar'},phase('orange','ns',1)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2979},'%tag':'dollar'},phase('red','ns',4))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3029}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3045},'%tag':'dollar'},phase('red','ew',4)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3079},'%tag':'dollar'},phase('green','ew',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3115},'%tag':'dollar'},phase('orange','ew',1)))));
+}}),$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':2877},'%tag':'FORK'},$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':2890}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2906},'%tag':'dollar'},phase('green','ns',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2942},'%tag':'dollar'},phase('orange','ns',1)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':2979},'%tag':'dollar'},phase('red','ns',4))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3029}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3045},'%tag':'dollar'},phase('red','ew',4)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3079},'%tag':'dollar'},phase('green','ew',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3115},'%tag':'dollar'},phase('orange','ew',1)))));
 let lightHandler2 = function (light) {
 const name=light.signame;
 const el=document.getElementById(this.trafficId + '-' + name);
@@ -109,11 +109,11 @@ return x.union(y);
 return false;
 },'combine_func':(x,y) => {
 return x || y;
-}}),$$hiphop.TRAP({'Lfailed':'Lfailed','%location':{'filename':'src/traffic.hh.mjs','pos':3707},'%tag':'Lfailed'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':3724},'%tag':'fork'},$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3740}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3759},'%tag':'dollar'},phase('green','ns',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3798},'%tag':'dollar'},phase('orange','ns',1)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3838},'%tag':'dollar'},phase('red','ns',3))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3897}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3916},'%tag':'dollar'},phase('red','ew',4)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3953},'%tag':'dollar'},phase('green','ew',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3992},'%tag':'dollar'},phase('orange','ew',1))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':4054}},$$hiphop.IF({'%location':{'filename':'src/traffic.hh.mjs','pos':4073},'%tag':'if','apply':function () {
+}}),$$hiphop.TRAP({'Lfailed':'Lfailed','%location':{'filename':'src/traffic.hh.mjs','pos':3707},'%tag':'TRAP'},$$hiphop.FORK({'%location':{'filename':'src/traffic.hh.mjs','pos':3724},'%tag':'FORK'},$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3740}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3759},'%tag':'dollar'},phase('green','ns',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3798},'%tag':'dollar'},phase('orange','ns',1)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3838},'%tag':'dollar'},phase('red','ns',3))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':3897}},$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3916},'%tag':'dollar'},phase('red','ew',4)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3953},'%tag':'dollar'},phase('green','ew',3)),$$hiphop.SEQUENCE({'%location':{'filename':'src/traffic.hh.mjs','pos':3992},'%tag':'dollar'},phase('orange','ew',1))),$$hiphop.LOOP({'%location':{'filename':'src/traffic.hh.mjs','pos':4054}},$$hiphop.IF({'%location':{'filename':'src/traffic.hh.mjs','pos':4073},'%tag':'if','apply':function () {
 return ((() => {
 const ew=this.ew;const ns=this.ns;return !(ns.nowval.has('red') || ew.nowval.has('red'));
 })());
-}},$$hiphop.SIGACCESS({'signame':'ns','pre':false,'val':true,'cnt':false}),$$hiphop.SIGACCESS({'signame':'ew','pre':false,'val':true,'cnt':false}),$$hiphop.EXIT({'Lfailed':'Lfailed','%location':{'filename':'src/traffic.hh.mjs','pos':4149},'%tag':'break'})),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':4184},'%tag':'yield'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':4226},'%tag':'sustain','signame':'failed','apply':function () {
+}},$$hiphop.SIGACCESS({'signame':'ns','pre':false,'val':true,'cnt':false}),$$hiphop.SIGACCESS({'signame':'ew','pre':false,'val':true,'cnt':false}),$$hiphop.EXIT({'Lfailed':'Lfailed','%location':{'filename':'src/traffic.hh.mjs','pos':4149},'%tag':'EXIT'})),$$hiphop.PAUSE({'%location':{'filename':'src/traffic.hh.mjs','pos':4184},'%tag':'yield'})))),$$hiphop.SUSTAIN({'%location':{'filename':'src/traffic.hh.mjs','pos':4226},'%tag':'SUSTAIN','signame':'failed','apply':function () {
 return true;
 }}));
 export { mach };export { mach3 };export { mach4 };export { mach5 };export { mach6 };export { mach7 };
