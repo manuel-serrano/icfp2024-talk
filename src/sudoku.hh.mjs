@@ -4,8 +4,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano & Robby Findler                    */
 /*    Creation    :  Sat Dec 23 07:16:35 2023                          */
-/*    Last change :  Sun Mar 30 13:23:54 2025 (serrano)                */
-/*    Copyright   :  2023-25 Manuel Serrano & Robby Findler            */
+/*    Last change :  Thu Jan 22 19:31:48 2026 (serrano)                */
+/*    Copyright   :  2023-26 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku resolver that can make several guesses when stuck using   */
 /*    a JS function.                                                   */
@@ -146,11 +146,11 @@ const ForkHouseMap = proc => hiphop {
 /*---------------------------------------------------------------------*/
 const MustOtherCannot = coords => hiphop {
    fork ${coords.map(c => hiphop loop {
-      let c_must = this[`must${c.i}${c.j}`].nowval;
+      let m = this[`must${c.i}${c.j}`].nowval;
       ${coords
          .filter(d => c.i !== d.i || c.j !== d.j)
          .map(d => hiphop {
-            emit ${`cannot${d.i}${d.j}`}(c_must);
+            emit ${`cannot${d.i}${d.j}`}(m);
          })}
       yield;
    })}
