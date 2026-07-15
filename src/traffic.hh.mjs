@@ -73,9 +73,9 @@ const Traffic5 = hiphop module() {
    signal s = false combine (x,y) => x || y;
    done: {
       fork {
-         suspend (s.nowval) {
+         suspend {
             sustain light(new Set(["red"]));
-         }
+         } when (s.nowval)
       } par {
          yield;
          yield;
@@ -94,8 +94,8 @@ const phase = (color, light, count) => hiphop {
    signal s = false combine (x,y) => x || y;
    done: {
       fork {
-         suspend (s.nowval) {
-            sustain ${light}(new Set([color]));}
+         suspend {
+            sustain ${light}(new Set([color]));} when (s.nowval)
       } par {
          ${Array.from({length: count}, _ => hiphop yield)}
          emit s(true);

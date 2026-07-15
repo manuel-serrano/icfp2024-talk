@@ -3,8 +3,8 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano                                    */
 /*    Creation    :  Wed Oct 14 12:03:19 2024                          */
-/*    Last change :  Sat Apr  5 07:46:02 2025 (serrano)                */
-/*    Copyright   :  2024-25 Manuel Serrano                            */
+/*    Last change :  Wed Jul 15 08:47:22 2026 (serrano)                */
+/*    Copyright   :  2024-26 Manuel Serrano                            */
 /*    -------------------------------------------------------------    */
 /*    ICFP24 presentation                                              */
 /*=====================================================================*/
@@ -58,8 +58,6 @@ service icfp24(o) {
            "@hop/hiphop": "${R.resolve('@hop/hiphop/hiphop-client.mjs')}",
            "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}",
            "src/sudoku.mjs": "${R.resolve('src/sudoku.mjs')}",
-	   "tippy.js": "${R.resolve('tippy.js/dist/tippy.mjs')}",
-	   "tippy.js/dist/tippy.css": "${R.resolve('tippy.js/dist/tippy.css')}",
 	   "@popperjs/core": "${R.resolve('@popperjs/core/lib/index.js')}"
         }
      }
@@ -70,7 +68,6 @@ service icfp24(o) {
         import { mach } from "src/traffic.mjs";
         import { solve } from "src/sudoku.mjs";
         import { server } from "@hop/hop";
-        import tippy from "tippy.js";
         window.mach = mach;
 
         // needed for backward compatibility with pre-es6 modules
@@ -116,8 +113,6 @@ service icfp24slides(o) {
            "src/traffic.mjs": "${R.resolve('src/traffic.mjs')}",
            "src/sudoku.mjs": "${R.resolve('src/sudoku.mjs')}",
            "src/boards.js": "${R.resolve('src/boards.js')}",
-	   "tippy.js": "${R.resolve('tippy.js/dist/tippy.mjs')}",
-	   "tippy.js/dist/tippy.css": "${R.resolve('tippy.js/dist/tippy.css')}",
 	   "@popperjs/core": "${R.resolve('@popperjs/core/lib/index.js')}"
         }
      }

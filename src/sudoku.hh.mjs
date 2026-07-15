@@ -4,7 +4,7 @@
 /*    -------------------------------------------------------------    */
 /*    Author      :  Manuel Serrano & Robby Findler                    */
 /*    Creation    :  Sat Dec 23 07:16:35 2023                          */
-/*    Last change :  Thu Jan 22 19:31:48 2026 (serrano)                */
+/*    Last change :  Wed Jul 15 08:44:30 2026 (serrano)                */
 /*    Copyright   :  2023-26 Manuel Serrano & Robby Findler            */
 /*    -------------------------------------------------------------    */
 /*    Sudoku resolver that can make several guesses when stuck using   */
@@ -56,7 +56,7 @@ const SudokuMachine = strategies => hiphop module() {
    inout unsolved = new Set() combine (x, y) => x.union(y);
 
    loop {
-      /*#@abort#*/abort immediate (reset.nowval) { /*#/@abort#*/
+      /*#@abort#*/abort { /*#/@abort#*/
          fork {
             ${MustThisCannot()}
          } par {
@@ -66,7 +66,7 @@ const SudokuMachine = strategies => hiphop module() {
          } par {
             fork ${strategies}
          }
-      }
+      } when immediate (reset.nowval);
 
       ${iota.map(i => hiphop ${iota.map(j => hiphop {
          emit ${`must${i}${j}`}(new Set());
